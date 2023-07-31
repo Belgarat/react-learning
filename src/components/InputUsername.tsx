@@ -10,7 +10,7 @@ export interface UsernameType {
 export const InputUsername4 = (props: UsernameType) => {
   return (
     <>
-      <span>Type4: </span>
+      <span >Type4: </span>
       <input
         type="text"
         id="username4"

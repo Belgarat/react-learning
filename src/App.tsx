@@ -4,6 +4,8 @@ import {
   UsernameType
 } from "./components/InputUsername";
 import "./App.css";
+import "./style.css";
+import "./typography.css";
 import { useEffect, useState } from "react";
 
 function App() {
