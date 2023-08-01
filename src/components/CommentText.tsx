@@ -1,1 +1,6 @@
-<div></div>
+export const CommentText = () => {
+  return(
+    <>
+    </>
+  )
+}
