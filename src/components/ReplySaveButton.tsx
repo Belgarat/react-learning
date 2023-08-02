@@ -1,7 +1,11 @@
+const handleClick = () => {
+  console.log("Clicked on ADD button!");
+}
+
 export const ReplySaveButton = () => {
   return(
     <>
-      <button>Reply</button>
+      <button onClick={handleClick}>Add</button>
     </>
   )
 }
