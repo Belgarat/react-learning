@@ -1,23 +1,34 @@
 import React from "react";
 
-const handleChange = (message: string) => {
-  console.log(message);
+export interface CommentType {
+  author: number;
+  comment: string;
+  maxlength: number;
+  onValueChange?: (newValue: string) => void;
 }
 
-export const InputText = () => {
+/*const handleChange = (message: string) => {
+  console.log(message);
+}*/
+
+export const InputText = (props: CommentType) => {
   return(
     <>
       <textarea
-      placeholder="Insert your comment..." 
-      onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        /*if (props.onContentChange) {
-          props.onContentChange(event.target.value);
-        }*/
-        handleChange(event.target.value);
+        name="comment"
+        value={props.comment}
+        placeholder="Insert your comment..." 
+        onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        //check maxlength
+        if (event.target.value.length <= props.maxlength) {
+          //check type
+          if (props.onValueChange) {
+            props.onValueChange(event.target.value);
+          }
+        }
+        //handleChange(event.target.value);
       }}
-      >
-
-      </textarea>
+      />
     </>
   )
 }

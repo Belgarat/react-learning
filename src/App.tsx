@@ -9,6 +9,7 @@ import "./typography.css";
 import { useEffect, useState } from "react";
 import { CommentBox } from "./components/CommentBox";
 import { ReplyForm } from "./components/ReplyForm";
+import { CommentType } from "./components/InputText";
 
 function App() {
 
@@ -33,6 +34,12 @@ function App() {
     });
   };
 
+  const [comment, setComment] = useState<CommentType>({
+    author:1,
+    comment: "",
+    maxlength: 100
+  })
+
   return (
     <>
       <div className="App">
@@ -42,7 +49,7 @@ function App() {
         />
         <Greeter value={usernameObj.name} fontSize="5vw" />
         <br/><br/>
-        <ReplyForm/>
+        <ReplyForm {...comment}/>
         <br/><br/>
         Comments
         <CommentBox/>

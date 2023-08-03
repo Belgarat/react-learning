@@ -1,16 +1,15 @@
 import { Avatar } from "./Avatar"
-import { InputText } from "./InputText"
-import { CharCounter } from "./CharCounter"
+import { InputText, CommentType } from "./InputText"
 import { ReplySaveButton } from "./ReplySaveButton"
 import { ReplyCancelButton } from "./ReplyCancelButton"
 
-export const ReplyForm = () => {
+export const ReplyForm = (props: CommentType) => {
   return(
     <>
       <div>
         <div>
           <Avatar/>
-          <InputText/>
+          <InputText {...props}/>
         </div>
         <div>
           <ReplyCancelButton/>
