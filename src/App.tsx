@@ -36,7 +36,7 @@ function App() {
 
   const [comment, setComment] = useState<CommentType>({
     author:1,
-    comment: "",
+    comment: " ",
     maxlength: 100
   })
 
@@ -49,7 +49,7 @@ function App() {
         />
         <Greeter value={usernameObj.name} fontSize="5vw" />
         <br/><br/>
-        <ReplyForm {...comment}/>
+        <ReplyForm {...comment} onValueChange={setComment}/>
         <br/><br/>
         Comments
         <CommentBox/>
