@@ -2,7 +2,7 @@ import React from "react";
 
 export interface CommentType {
   author: number;
-  comment: string;
+  text: string;
   maxlength: number;
   onValueChange?: (newValue: string) => void;
 }
@@ -16,7 +16,7 @@ export const InputText = (props: CommentType) => {
     <>
       <textarea
         name="comment"
-        value={props.comment}
+        value={props.text}
         placeholder="Insert your comment..." 
         onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
         //check maxlength
