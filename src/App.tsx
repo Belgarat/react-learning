@@ -45,7 +45,7 @@ function App() {
   })
 
   const addComment = () => {
-    console.log(comment);
+    console.log("ADD clicked", comment);
   };
 
   const cancelComment = () => {};
