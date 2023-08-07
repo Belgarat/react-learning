@@ -1,11 +1,13 @@
-const handleClick = () => {
-  console.log("Clicked on CANCEL button");
-}
+import { CommentModel } from "../Interfaces";
 
-export const ReplyCancelButton = () => {
+export const ReplyCancelButton = (props: CommentModel) => {
   return(
     <>
-      <button onClick={handleClick}>Cancel</button>
+      <button onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+        if(props.clickCancel && props.onValueChange){
+          props.onValueChange("");
+        }
+      }}>Cancel</button>
     </>
   )
 }

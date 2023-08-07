@@ -9,7 +9,7 @@ import "./typography.css";
 import { useEffect, useState } from "react";
 import { CommentBox } from "./components/CommentBox";
 import { ReplyForm } from "./components/ReplyForm";
-import { CommentType } from "./components/InputText";
+import { CommentModel, CommentListModel } from "./Interfaces";
 
 function App() {
 
@@ -38,11 +38,17 @@ function App() {
     setComment({...comment, text: textChange});
   };
 
-  const [comment, setComment] = useState<CommentType>({
+  const [comment, setComment] = useState<CommentModel>({
     author:1,
-    text: " ",
+    text: "",
     maxlength: 100
   })
+
+  const addComment = () => {
+    console.log(comment);
+  };
+
+  const cancelComment = () => {};
 
   return (
     <>
@@ -53,7 +59,7 @@ function App() {
         />
         <Greeter value={usernameObj.name} fontSize="5vw" />
         <br/><br/>
-        <ReplyForm {...comment} onValueChange={updateComment}/>
+        <ReplyForm {...comment} onValueChange={updateComment} clickAdd={addComment} clickCancel={cancelComment}/>
         <br/><br/>
         Comments
         <CommentBox/>

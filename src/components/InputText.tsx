@@ -1,17 +1,7 @@
 import React from "react";
+import { CommentModel } from "../Interfaces"
 
-export interface CommentType {
-  author: number;
-  text: string;
-  maxlength: number;
-  onValueChange?: (newValue: string) => void;
-}
-
-/*const handleChange = (message: string) => {
-  console.log(message);
-}*/
-
-export const InputText = (props: CommentType) => {
+export const InputText = (props: CommentModel) => {
   return(
     <>
       <textarea
@@ -26,7 +16,6 @@ export const InputText = (props: CommentType) => {
             props.onValueChange(event.target.value);
           }
         }
-        //handleChange(event.target.value);
       }}
       />
     </>
