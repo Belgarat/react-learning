@@ -1,0 +1,33 @@
+.replyformflex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /*justify-content: flex-start;*/
+  min-width: 300px;
+}
+
+.replyformflex-first-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  align-items: center
+}
+
+.replyformflex-last-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.replyformflex-item {}
+
+.replyform-textarea {
+  /*max-width: 600px;*/
+  min-width: 100%;
+  resize: none;
+  border-bottom: 1px;
+  border-style: solid;
+  border-top: 0px;
+  border-left: 0px;
+  height: 1em;
+}

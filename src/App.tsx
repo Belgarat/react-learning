@@ -3,7 +3,7 @@ import {
   InputUsername4,
   UsernameType
 } from "./components/InputUsername";
-import "./App.css";
+//import "./App.css";
 import "./style.css";
 import "./typography.css";
 import { useEffect, useState } from "react";

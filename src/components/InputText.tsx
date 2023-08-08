@@ -1,10 +1,11 @@
 import React from "react";
 import { CommentModel } from "../Interfaces"
+import "./ReplyForm.css";
 
 export const InputText = (props: CommentModel) => {
   return(
-    <>
-      <textarea
+    <> 
+      <textarea className="replyform-textarea"
         name="comment"
         value={props.text}
         placeholder="Insert your comment..." 
