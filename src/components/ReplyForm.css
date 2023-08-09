@@ -10,21 +10,48 @@
   display: flex;
   justify-content: flex-start;
   gap: 10px;
-  align-items: center
+  align-items: center;
 }
 
 .replyformflex-last-row {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 15px;
+  padding-top: 0.5em;
 }
 
 .replyform-textarea {
   width: 100%;
   resize: none;
-  border-bottom: 1px;
+  /*border-bottom: 1px;
   border-style: solid;
   border-top: 0px;
-  border-left: 0px;
-  height: 1em;
+  border-left: 0px;*/
+  border: 0px;
+  height: 3em;
+  background-color: #EEE;
+}
+
+.replyformflex-button-cancel {
+  border: 0px;
+  background-color: transparent;
+}
+
+.replyformflex-button-cancel:hover {
+  border: 0px;
+  background-color: #EEE;
+}
+
+.replyformflex-button-cancel:active {
+  border: 0px;
+  background-color: #DDD;
+}
+
+.replyformflex-button-add {
+  border: 0px;
+}
+
+.replyformflex-button-add:active {
+  border: 0px;
+  background-color: #DDD;
 }
