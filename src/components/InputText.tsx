@@ -2,7 +2,7 @@ import React from "react";
 import { CommentModel } from "../Interfaces"
 import "./ReplyForm.css";
 
-const calulateCharLeft = (text: string, limit = 100): string => {
+const calulateCharLeft = (text: string, limit: number): string => {
   const delta = limit - text.length;
 
   switch (true) {
