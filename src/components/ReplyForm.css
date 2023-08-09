@@ -40,18 +40,26 @@
 .replyformflex-button-cancel:hover {
   border: 0px;
   background-color: #EEE;
+  cursor: pointer;
 }
 
 .replyformflex-button-cancel:active {
   border: 0px;
   background-color: #DDD;
+  cursor: pointer;
 }
 
 .replyformflex-button-add {
   border: 0px;
 }
 
+.replyformflex-button-add:hover {
+  border: 0px;
+  cursor: pointer;
+}
+
 .replyformflex-button-add:active {
   border: 0px;
   background-color: #DDD;
+  cursor: pointer;
 }
