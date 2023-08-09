@@ -2,8 +2,17 @@ import React from "react";
 import { CommentModel } from "../Interfaces"
 import "./ReplyForm.css";
 
-const calulateCharLeft = (text: string, limit = 100): boolean => {
-  return ((limit - text.length <= 50), (limit - text.length >= 10));
+const calulateCharLeft = (text: string, limit = 100): string => {
+  const delta = limit - text.length;
+
+  switch (true) {
+    case (delta < 10):
+      return 'replyformflex-charcounter-error';
+    case (delta > 10 && delta < 50):
+      return 'replyformflex-charcounter-alert';
+    default:
+      return 'replyformflex-charcounter';
+  }
 }
 
 export const InputText = (props: CommentModel) => {
@@ -23,8 +32,7 @@ export const InputText = (props: CommentModel) => {
         }
       }}
       />
-      <span className=
-      {calulateCharLeft(props.text, props.maxlength) ? "replyformflex-charcounter-alert" : "replyformflex-charcounter-error"}>
+      <span className={calulateCharLeft(props.text, props.maxlength)}>
         {(props.maxlength - props.text.length)}
       </span>
     </>
