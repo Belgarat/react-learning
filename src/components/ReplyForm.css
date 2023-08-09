@@ -63,3 +63,15 @@
   background-color: #DDD;
   cursor: pointer;
 }
+
+.replyformflex-charcounter {
+  color: #999;
+}
+
+.replyformflex-charcounter-alert {
+  color: darkorange;
+}
+
+.replyformflex-charcounter-error {
+  color: red;
+}

@@ -3,6 +3,7 @@ export interface CommentModel {
   author: number;
   text: string;
   maxlength: number;
+  date?: Date;
   onValueChange?: (newValue: string) => void;
   clickAdd?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   clickCancel?: (event: React.MouseEvent<HTMLButtonElement>) => void;
