@@ -1,6 +1,6 @@
 import { CommentModel } from "../Interfaces"
 
-const calulateCharLeft = (text: string, limit: number): string => {
+const calulateCharLeft = (text: string, limit: number = 100): string => {
   const delta = limit - text.length;
 
   switch (true) {
@@ -17,7 +17,7 @@ export function CharCounter(props: CommentModel) {
   return (
     <>
       <span className={calulateCharLeft(props.body, props.maxlength)}>
-        {(props.maxlength - props.body.length)}
+        {(props.maxlength && (props.maxlength - props.body.length))}
       </span>
     </>
   );

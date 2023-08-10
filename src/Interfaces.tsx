@@ -4,7 +4,7 @@ export interface CommentModel {
   name: string;
   email?: string;
   body: string;
-  maxlength: number;
+  maxlength?: number;
   date?: Date;
   onValueChange?: (newValue: string) => void;
   clickAdd?: (event: React.MouseEvent<HTMLButtonElement>) => void;

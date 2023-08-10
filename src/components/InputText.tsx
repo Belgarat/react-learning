@@ -11,7 +11,7 @@ export const InputText = (props: CommentModel) => {
         placeholder="Insert your comment..." 
         onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
         //check maxlength
-        if (event.target.value.length <= props.maxlength) {
+        if (props.maxlength && event.target.value.length <= props.maxlength) {
           //check type
           if (props.onValueChange) {
             props.onValueChange(event.target.value);
