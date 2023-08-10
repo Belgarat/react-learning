@@ -3,7 +3,7 @@ import { InputText } from "./InputText"
 import { CommentModel } from "../Interfaces"
 import { ReplySaveButton  } from "./ReplySaveButton"
 import { ReplyCancelButton } from "./ReplyCancelButton"
-import "../style.css";
+//import "../style.css";
 import "../typography.css";
 import "./ReplyForm.css";
 

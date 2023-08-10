@@ -4,7 +4,7 @@ import {
   UsernameType
 } from "./components/InputUsername";
 //import "./App.css";
-import "./style.css";
+//import "./style.css";
 import "./typography.css";
 import { useEffect, useState } from "react";
 import { CommentBox } from "./components/CommentBox";
@@ -55,12 +55,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <InputUsername4
-          {...usernameObj}
-          onUsernameObjChange={setUsernameObjName}
-        />
-        <Greeter value={usernameObj.name} fontSize="5vw" />
-        <br/><br/>
+        
         <ReplyForm {...comment} onValueChange={updateComment} clickAdd={addComment} clickCancel={cancelComment}/>
         <br/><br/>
         Comments

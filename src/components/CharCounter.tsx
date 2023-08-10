@@ -1,11 +1,26 @@
-export interface CharCounterType {
-  value: string;
+import { CommentModel } from "../Interfaces"
+
+const calulateCharLeft = (text: string, limit: number): string => {
+  const delta = limit - text.length;
+
+  switch (true) {
+    case (delta < 10):
+      return 'replyformflex-charcounter-error';
+    case (delta > 10 && delta < 50):
+      return 'replyformflex-charcounter-alert';
+    default:
+      return 'replyformflex-charcounter';
+  }
 }
 
-export function CharCounter({value}: CharCounterType) {
+export function CharCounter(props: CommentModel) {
   return (
     <>
-      <div>Char Counter: {value.length}</div>
+      <span className={calulateCharLeft(props.text, props.maxlength)}>
+        {(props.maxlength - props.text.length)}
+      </span>
     </>
   );
 }
+
+

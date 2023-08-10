@@ -26,7 +26,7 @@ export const InputUsername4 = (props: UsernameType) => {
       />
       <br/>
       <br/>
-      <CharCounter value={props.name} />
+      
     </>
   );
 };
