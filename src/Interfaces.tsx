@@ -11,13 +11,9 @@ export interface CommentModel {
   clickCancel?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface CommentListModel {
-  comments: CommentModel[];
-}
-
 export interface CommentSystemModel {
   comment: CommentModel;
-  comments: CommentListModel;
+  comments: CommentModel[];
   onValueChange?: (newValue: string) => void;
   clickAdd?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   clickCancel?: (event: React.MouseEvent<HTMLButtonElement>) => void;

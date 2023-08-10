@@ -6,7 +6,7 @@ import { LikeButton } from "./LikeButton"
 import { LikeCounter } from "./LikeCounter"
 import { ReplyFormToggle } from "./ReplyFormToggle"
 import { ReplyListToggle } from "./ReplyListToggle"
-import { CommentModel, CommentListModel } from "../Interfaces";
+import { CommentModel } from "../Interfaces";
 
 export const CommentBox = (comments: CommentModel[]) => {
   return(
