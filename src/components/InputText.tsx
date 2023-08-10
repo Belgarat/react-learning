@@ -2,13 +2,12 @@ import React from "react";
 import { CommentModel } from "../Interfaces"
 import { CharCounter } from "./CharCounter";
 
-
 export const InputText = (props: CommentModel) => {
   return(
     <> 
       <textarea className="replyform-textarea"
         name="comment"
-        value={props.text}
+        value={props.body}
         placeholder="Insert your comment..." 
         onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
         //check maxlength

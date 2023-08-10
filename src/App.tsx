@@ -35,12 +35,12 @@ function App() {
   };
 
   const updateComment = (textChange: string) => {
-    setComment({...comment, text: textChange});
+    setComment({...comment, body: textChange});
   };
 
   const [comment, setComment] = useState<CommentModel>({
-    author:1,
-    text: "",
+    name:"1",
+    body: "",
     maxlength: 100
   })
 
@@ -49,7 +49,7 @@ function App() {
   };
 
   const cancelComment = () => {
-    setComment({...comment, text: ""});
+    setComment({...comment, body: ""});
   };
 
   return (

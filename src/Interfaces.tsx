@@ -1,7 +1,9 @@
 export interface CommentModel {
+  postID?:number;
   id?:number;
-  author: number;
-  text: string;
+  name: string;
+  email?: string;
+  body: string;
   maxlength: number;
   date?: Date;
   onValueChange?: (newValue: string) => void;

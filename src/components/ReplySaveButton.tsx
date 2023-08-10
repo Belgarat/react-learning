@@ -8,7 +8,7 @@ export const ReplySaveButton = (props: CommentModel) => {
       <button 
       className="replyformflex-button-add"
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-          if(props.clickAdd && props.text.length>0){
+          if(props.clickAdd && props.body.length>0){
             props.clickAdd(event);
           }
         }
