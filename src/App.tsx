@@ -52,6 +52,14 @@ function App() {
     setComment({...comment, body: ""});
   };
 
+  const [comments, setComments] = useState<CommentListModel[]>([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/comments')
+    .then(res => res.json())
+    .then(res => setComments(res))
+  }, [])
+
   return (
     <>
       <div className="App">
@@ -59,7 +67,7 @@ function App() {
         <ReplyForm {...comment} onValueChange={updateComment} clickAdd={addComment} clickCancel={cancelComment}/>
         <br/><br/>
         Comments
-        <CommentBox/>
+        <CommentBox {...comments}/>
       </div>
     </>
   );

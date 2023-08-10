@@ -6,30 +6,37 @@ import { LikeButton } from "./LikeButton"
 import { LikeCounter } from "./LikeCounter"
 import { ReplyFormToggle } from "./ReplyFormToggle"
 import { ReplyListToggle } from "./ReplyListToggle"
+import { CommentModel, CommentListModel } from "../Interfaces";
 
-export const CommentBox = () => {
+export const CommentBox = (comments: CommentListModel) => {
   return(
     <>
-    <div>
-      <Avatar/>
-    </div>
-    <div>
-      <div>
-        <Username/>
-        <CommentDate/>
-      </div>
-      <div>
-        <CommentText/>
-      </div>
-      <div>
-        <LikeButton/>
-        <LikeCounter/>
-        <ReplyFormToggle/>
-      </div>
-      <div>
-        <ReplyListToggle/>
-      </div>
-    </div>
+    {
+      comments.map((comment: CommentModel) => {
+        return <>
+                <div>
+                  <Avatar/>
+                </div>
+                <div>
+                  <div>
+                    <Username/>
+                    <CommentDate/>
+                  </div>
+                  <div>
+                    <CommentText/>
+                  </div>
+                  <div>
+                    <LikeButton/>
+                    <LikeCounter/>
+                    <ReplyFormToggle/>
+                  </div>
+                  <div>
+                    <ReplyListToggle/>
+                  </div>
+                </div>
+              </>
+      })
+    }
     </>
   )
 }

@@ -12,7 +12,7 @@ export interface CommentModel {
 }
 
 export interface CommentListModel {
-  list: CommentModel[];
+  comments: CommentModel[];
 }
 
 export interface CommentSystemModel {
