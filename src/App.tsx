@@ -52,7 +52,7 @@ function App() {
     setComment({...comment, body: ""});
   };
 
-  const [comments, setComments] = useState<CommentListModel[]>([]);
+  const [comments, setComments] = useState<CommentModel[]>([]);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/comments')

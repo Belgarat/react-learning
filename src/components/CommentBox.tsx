@@ -8,7 +8,7 @@ import { ReplyFormToggle } from "./ReplyFormToggle"
 import { ReplyListToggle } from "./ReplyListToggle"
 import { CommentModel, CommentListModel } from "../Interfaces";
 
-export const CommentBox = (comments: CommentListModel[]) => {
+export const CommentBox = (comments: CommentModel[]) => {
   return(
     <>
     {
