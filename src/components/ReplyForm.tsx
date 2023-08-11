@@ -16,8 +16,8 @@ export const ReplyForm = ({comment, replayEvents}: {comment: CommentModel, repla
             <InputText comment={comment} replayEvents={replayEvents}/>
           </div>
           <div className="replyformflex-last-row">
-            <ReplyCancelButton {...comment}/>
-            <ReplySaveButton {...comment}/>
+            <ReplyCancelButton comment={comment} replayEvents={replayEvents}/>
+            <ReplySaveButton comment={comment} replayEvents={replayEvents}/>
           </div>
       </div>
     </>

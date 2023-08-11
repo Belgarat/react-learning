@@ -1,15 +1,15 @@
 import React from "react"
-import { CommentModel } from "../Interfaces"
+import { CommentModel, CommentSystemModel } from "../Interfaces"
 //import "./ReplyForm.css";
 
-export const ReplySaveButton = (props: CommentModel) => {
+export const ReplySaveButton = ({comment, replayEvents}: {comment: CommentModel, replayEvents: CommentSystemModel}) => {
   return(
     <>
       <button 
       className="replyformflex-button-add"
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-          if(props.clickAdd && props.body.length>0){
-            props.clickAdd(event);
+          if(replayEvents.clickAdd && comment.body.length>0){
+            replayEvents.clickAdd(event);
           }
         }
       }>Add</button>
