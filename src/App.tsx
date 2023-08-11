@@ -67,7 +67,7 @@ function App() {
         <ReplyForm {...comment} onValueChange={updateComment} clickAdd={addComment} clickCancel={cancelComment}/>
         <br/><br/>
         Comments
-        <CommentBox {...comments} ciaociao={addComment}/>
+        <CommentBox comments={comments} ciaociao={addComment}/>
       </div>
     </>
   );

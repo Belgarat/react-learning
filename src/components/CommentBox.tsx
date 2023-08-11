@@ -9,11 +9,11 @@ import { ReplyListToggle } from "./ReplyListToggle"
 import { CommentModel } from "../Interfaces";
 import React from "react"
 
-export const CommentBox = (comments: CommentModel[], ciaociao: React.EventHandler<any>) => {
+export const CommentBox = ({...props}: {comments: CommentModel[], ciaociao: any}) => {
   return(
     <>
     {
-      comments.map((comment: CommentModel) => {
+      props.comments.map((comment: CommentModel) => {
         return <>
                 <div>
                   <Avatar/>
