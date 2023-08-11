@@ -13,11 +13,11 @@ const calulateCharLeft = (text: string, limit: number = 100): string => {
   }
 }
 
-export function CharCounter(props: CommentModel) {
+export function CharCounter({body, maxlength = 50}: {body: string, maxlength?: number|undefined}) {
   return (
     <>
-      <span className={calulateCharLeft(props.body, props.maxlength)}>
-        {(props.maxlength && (props.maxlength - props.body.length))}
+      <span className={calulateCharLeft(body, maxlength)}>
+        {(maxlength && (maxlength - body.length))}
       </span>
     </>
   );
