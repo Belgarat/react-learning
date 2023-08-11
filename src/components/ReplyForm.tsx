@@ -7,17 +7,17 @@ import { ReplyCancelButton } from "./ReplyCancelButton"
 import "../typography.css";
 import "./ReplyForm.css";
 
-export const ReplyForm = ({comment, onValueChange, clickAdd, clickCancel}: {comment: CommentModel, onValueChange: React.EventHandler<any>, clickAdd: React.EventHandler<any>, clickCancel: React.EventHandler<any>}) => {
+export const ReplyForm = ({comment, replayEvents}: {comment: CommentModel, replayEvents: CommentSystemModel}) => {
   return(
     <>
       <div id="ReplyForm" className="replyformflex">
           <div className="replyformflex-first-row">
             <Avatar/>
-            <InputText comment={comment} onValueChange={onValueChange} clickAdd={clickAdd} clickCancel={clickCancel}/>
+            <InputText comment={comment} replayEvents={replayEvents}/>
           </div>
           <div className="replyformflex-last-row">
-            <ReplyCancelButton {...props}/>
-            <ReplySaveButton {...props}/>
+            <ReplyCancelButton {...comment}/>
+            <ReplySaveButton {...comment}/>
           </div>
       </div>
     </>

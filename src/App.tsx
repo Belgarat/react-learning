@@ -60,11 +60,17 @@ function App() {
     .then(res => setComments(res))
   }, [])
 
+  const replayEvents: CommentSystemModel = {
+    clickAdd: addComment,
+    clickCancel: cancelComment,
+    onValueChange: updateComment
+  }
+
   return (
     <>
       <div className="App">
         
-        <ReplyForm comment={comment} onValueChange={updateComment} clickAdd={addComment} clickCancel={cancelComment}/>
+        <ReplyForm comment={comment} replayEvents={replayEvents}/>
         <br/><br/>
         Comments
         <CommentBox comments={comments}/>
