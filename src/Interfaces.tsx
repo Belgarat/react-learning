@@ -6,14 +6,12 @@ export interface CommentModel {
   body: string;
   maxlength?: number;
   date?: Date;
-  onValueChange?: (newValue: string) => void;
+  /*onValueChange?: (newValue: string) => void;
   clickAdd?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  clickCancel?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  clickCancel?: (event: React.MouseEvent<HTMLButtonElement>) => void;*/
 }
 
 export interface CommentSystemModel {
-  comment: CommentModel;
-  comments: CommentModel[];
   onValueChange?: (newValue: string) => void;
   clickAdd?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   clickCancel?: (event: React.MouseEvent<HTMLButtonElement>) => void;

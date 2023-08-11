@@ -9,7 +9,7 @@ import "./typography.css";
 import { useEffect, useState } from "react";
 import { CommentBox } from "./components/CommentBox";
 import { ReplyForm } from "./components/ReplyForm";
-import { CommentModel, CommentListModel } from "./Interfaces";
+import { CommentModel, CommentSystemModel } from "./Interfaces";
 
 function App() {
 
@@ -67,7 +67,7 @@ function App() {
         <ReplyForm {...comment} onValueChange={updateComment} clickAdd={addComment} clickCancel={cancelComment}/>
         <br/><br/>
         Comments
-        <CommentBox comments={comments} ciaociao={addComment}/>
+        <CommentBox comments={comments}/>
       </div>
     </>
   );

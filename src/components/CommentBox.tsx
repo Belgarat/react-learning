@@ -6,14 +6,15 @@ import { LikeButton } from "./LikeButton"
 import { LikeCounter } from "./LikeCounter"
 import { ReplyFormToggle } from "./ReplyFormToggle"
 import { ReplyListToggle } from "./ReplyListToggle"
-import { CommentModel } from "../Interfaces";
-import React from "react"
+import { CommentModel, CommentSystemModel } from "../Interfaces";
 
-export const CommentBox = ({...props}: {comments: CommentModel[], ciaociao: any}) => {
+//export const CommentBox = ({...props}: {comments: CommentModel[], clickAdd: CommentSystemModel}) => {
+  export const CommentBox = ({...props}: {comments: CommentModel[]}) => {
   return(
     <>
     {
       props.comments.map((comment: CommentModel) => {
+        console.log(comment);
         return <>
                 <div>
                   <Avatar/>
