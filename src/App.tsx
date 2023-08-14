@@ -6,13 +6,15 @@ import {
 //import "./App.css";
 //import "./style.css";
 import "./typography.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CommentBox } from "./components/CommentBox";
 import { ReplyForm } from "./components/ReplyForm";
 import { CommentModel, CommentSystemModel } from "./Interfaces";
+import { useStore } from "./Store";
 
 function App() {
 
+  const {maxlength, comments, addComment, removeComment, editComment} = useStore;
   const [username, setUsername] = useState<UsernameType>({
     name: "User",
     maxlength: 50
@@ -66,10 +68,25 @@ function App() {
     onValueChange: updateComment
   }
 
+  function useTraceUpdate(props:any) {
+    const prev = useRef(props);
+    useEffect(() => {
+      const changedProps = Object.entries(props).reduce((ps, [k, v]) => {
+        if (prev.current[k] !== v) {
+          ps[k] = [prev.current[k], v];
+        }
+        return ps;
+      }, {});
+      if (Object.keys(changedProps).length > 0) {
+        console.log('Changed props:', changedProps);
+      }
+      prev.current = props;
+    });
+  }
+  useTraceUpdate(comment);
   return (
     <>
       <div className="App">
-        
         <ReplyForm comment={comment} replayEvents={replayEvents}/>
         <br/><br/>
         Comments
