@@ -5,17 +5,17 @@ import { ReplySaveButton  } from "./ReplySaveButton"
 import { ReplyCancelButton } from "./ReplyCancelButton"
 import "./ReplyForm.css";
 
-export const ReplyForm = ({maxlength, comments, addComment, removeComment, editComment, comment}: {maxlength: number, comments: CommentSystemModel, addComment: CommentSystemModel, removeComment: CommentSystemModel, editComment: CommentSystemModel, comment: CommentModel}) => {
+export const ReplyForm = ({maxlength, comments, updateBodyValue, addComment, removeComment, editComment, comment}: {maxlength: number, comments: CommentModel[], updateBodyValue?: CommentSystemModel, addComment?: CommentSystemModel, removeComment?: CommentSystemModel, editComment?: CommentSystemModel, comment: CommentModel}) => {
   return(
     <>
       <div id="ReplyForm" className="replyformflex">
           <div className="replyformflex-first-row">
             <Avatar/>
-            <InputText maxlength={maxlength} comment={comment}/>
+            <InputText maxlength={maxlength} updateBodyValue={updateBodyValue} comment={comment}/>
           </div>
           <div className="replyformflex-last-row">
-            <ReplyCancelButton comments={comments} replayEvents={replayEvents}/>
-            <ReplySaveButton comments={comments} replayEvents={replayEvents}/>
+            <ReplyCancelButton comments={comments} comment={comment}/>
+            <ReplySaveButton comments={comments} comment={comment}/>
           </div>
       </div>
     </>

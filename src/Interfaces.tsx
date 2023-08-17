@@ -17,8 +17,10 @@ export interface CommentModel {
 
 export interface CommentSystemModel {
   maxlength: number;
+  comment: CommentModel;
   comments: CommentModel[];
-  addComment: (body: string, name?: string, email?: string, postID?:number) => void;
-  removeComment: (id: number) => void;
-  editComment: (id: number) => void;
+  updateBodyValue?: (newValue: string) => void;
+  addComment?: (comment: CommentModel) => void;
+  removeComment?: (id: number) => void;
+  editComment?: (id: number) => void;
 }

@@ -3,21 +3,26 @@ import { CommentModel, CommentSystemModel } from './Interfaces'
 
 export const useStore = create<CommentSystemModel>((set) => ({ 
   maxlength: 100,
+  comment: {
+    name: "author name",
+    body: ""
+  },
   comments: [],
   //TODO: fetch and add preloaded comments
-  addComment: (body: string, name?: string, email?: string, postID?:number) => {
+  //update comment textarea
+  updateBodyValue: (newValue: string) => {
+    set((state) => ({
+      comment: {
+        name: state.comment.name,
+        body: newValue,
+      } 
+    }));
+  },
+  //addComment: (body: string, name?: string, email?: string, postID?:number) => {
+  addComment: (comment: CommentModel) => {
     //TODO: add to DB and then add to local store
     set((state) => ({
-      comments: [
-        ...state.comments,
-        {
-          body,
-          name,
-          email,
-          postID,
-          //TODO: add current datetime to string
-        } as CommentModel,
-      ],
+      comments: [...state.comments, comment],
     }));
   },
   removeComment: (id: number) => {

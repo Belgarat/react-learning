@@ -9,12 +9,12 @@ import { ReplyListToggle } from "./ReplyListToggle"
 import { CommentModel, CommentSystemModel } from "../Interfaces";
 
 //export const CommentBox = ({...props}: {comments: CommentModel[], clickAdd: CommentSystemModel}) => {
-  export const CommentBox = ({maxlength, comments, addComment, removeComment, editComment}: CommentSystemModel) => {
+  export const CommentBox = ({comments}: CommentSystemModel) => {
   return(
     <>
     {
-      comments.map((comment: CommentModel) => {
-        console.log(comment);
+      comments.map((cmnt: CommentModel) => {
+        console.log(cmnt);
         return <>
                 <div>
                   <Avatar/>
