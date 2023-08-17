@@ -2,7 +2,7 @@ import React from "react";
 import { CommentModel, CommentSystemModel } from "../Interfaces"
 import { CharCounter } from "./CharCounter";
 
-export const InputText = ({comment, replayEvents}: {comment: CommentModel, replayEvents: CommentSystemModel}) => {
+export const InputText = ({maxlength, comment}: {maxlength: number, comment: CommentModel}) => {
   return(
     <> 
       <textarea className="replyform-textarea"
@@ -11,7 +11,7 @@ export const InputText = ({comment, replayEvents}: {comment: CommentModel, repla
         placeholder="Insert your comment..." 
         onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
         //check maxlength
-        if (comment.maxlength && event.target.value.length <= comment.maxlength) {
+        if (maxlength && event.target.value.length <= maxlength) {
           //check type
           if (replayEvents.onValueChange) {
             replayEvents.onValueChange(event.target.value);
@@ -19,7 +19,7 @@ export const InputText = ({comment, replayEvents}: {comment: CommentModel, repla
         }
       }}
       />
-      <CharCounter {...comment}/>
+      <CharCounter {...maxlength}/>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { CommentModel } from "../Interfaces"
+import { CommentModel, CommentSystemModel } from "../Interfaces"
 
 const calulateCharLeft = (text: string, limit: number = 100): string => {
   const delta = limit - text.length;
@@ -13,7 +13,7 @@ const calulateCharLeft = (text: string, limit: number = 100): string => {
   }
 }
 
-export function CharCounter({body, maxlength = 50}: {body: string, maxlength?: number|undefined}) {
+export function CharCounter({body, maxlength}: {body: string, maxlength: number}) {
   return (
     <>
       <span className={calulateCharLeft(body, maxlength)}>

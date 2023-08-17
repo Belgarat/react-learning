@@ -3,21 +3,19 @@ import { InputText } from "./InputText"
 import { CommentModel, CommentSystemModel } from "../Interfaces"
 import { ReplySaveButton  } from "./ReplySaveButton"
 import { ReplyCancelButton } from "./ReplyCancelButton"
-//import "../style.css";
-import "../typography.css";
 import "./ReplyForm.css";
 
-export const ReplyForm = ({comment, replayEvents}: {comment: CommentModel, replayEvents: CommentSystemModel}) => {
+export const ReplyForm = ({maxlength, comments, addComment, removeComment, editComment,comment}: {maxlength: number, comments: CommentSystemModel, addComment: CommentSystemModel, removeComment: CommentSystemModel, editComment: CommentSystemModel, comment: CommentModel}) => {
   return(
     <>
       <div id="ReplyForm" className="replyformflex">
           <div className="replyformflex-first-row">
             <Avatar/>
-            <InputText comment={comment} replayEvents={replayEvents}/>
+            <InputText maxlength={maxlength} comment={comment}/>
           </div>
           <div className="replyformflex-last-row">
-            <ReplyCancelButton comment={comment} replayEvents={replayEvents}/>
-            <ReplySaveButton comment={comment} replayEvents={replayEvents}/>
+            <ReplyCancelButton comments={comments} replayEvents={replayEvents}/>
+            <ReplySaveButton comments={comments} replayEvents={replayEvents}/>
           </div>
       </div>
     </>
