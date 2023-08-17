@@ -14,7 +14,7 @@ export const ReplyForm = ({maxlength, comments, updateBodyValue, addComment, rem
             <InputText maxlength={maxlength} updateBodyValue={updateBodyValue} comment={comment}/>
           </div>
           <div className="replyformflex-last-row">
-            <ReplyCancelButton comments={comments} comment={comment}/>
+            <ReplyCancelButton comments={comments} updateBodyValue={updateBodyValue} comment={comment}/>
             <ReplySaveButton comments={comments} comment={comment}/>
           </div>
       </div>
