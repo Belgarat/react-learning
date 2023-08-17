@@ -5,7 +5,7 @@ import { ReplySaveButton  } from "./ReplySaveButton"
 import { ReplyCancelButton } from "./ReplyCancelButton"
 import "./ReplyForm.css";
 
-export const ReplyForm = ({maxlength, comments, addComment, removeComment, editComment,comment}: {maxlength: number, comments: CommentSystemModel, addComment: CommentSystemModel, removeComment: CommentSystemModel, editComment: CommentSystemModel, comment: CommentModel}) => {
+export const ReplyForm = ({maxlength, comments, addComment, removeComment, editComment, comment}: {maxlength: number, comments: CommentSystemModel, addComment: CommentSystemModel, removeComment: CommentSystemModel, editComment: CommentSystemModel, comment: CommentModel}) => {
   return(
     <>
       <div id="ReplyForm" className="replyformflex">
