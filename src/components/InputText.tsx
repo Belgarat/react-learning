@@ -1,5 +1,5 @@
 import React from "react";
-import { CommentModel, CommentSystemModel } from "../Interfaces"
+import { CommentModel } from "../Interfaces"
 import { CharCounter } from "./CharCounter";
 
 export const InputText = ({maxlength, updateBodyValue, comment}: {maxlength: number, updateBodyValue: any, comment: CommentModel}) => {
@@ -12,11 +12,7 @@ export const InputText = ({maxlength, updateBodyValue, comment}: {maxlength: num
         onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
         //check maxlength
         if (maxlength && event.target.value.length <= maxlength) {
-          //check type
-          //if (replayEvents.onValueChange) {
-            //comment.onValueChange(event.target.value);
             comment.body=updateBodyValue(event.target.value);
-          //}
         }
       }}
       />

@@ -1,13 +1,11 @@
-import { CommentModel, CommentSystemModel } from "../Interfaces";
-//import "./ReplyForm.css";
+import { CommentModel } from "../Interfaces";
 
-export const ReplyCancelButton = ({comment, updateBodyValue, comments}: {comment: CommentModel, updateBodyValue:any, comments: CommentModel[]}) => {
+export const ReplyCancelButton = ({comment, updateBodyValue}: {comment: CommentModel, updateBodyValue:any}) => {
   return(
     <>
       <button 
       className="replyformflex-button-cancel"
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-          //console.log("Clicked Cancel");
           comment.body=updateBodyValue("");
         }
       }>Cancel</button>

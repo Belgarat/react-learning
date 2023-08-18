@@ -1,5 +1,3 @@
-import { CommentModel, CommentSystemModel } from "../Interfaces"
-
 const calulateCharLeft = (text: string, limit: number = 100): string => {
   const delta = limit - text.length;
 

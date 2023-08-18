@@ -18,8 +18,9 @@ export const useStore = create<CommentSystemModel>((set) => ({
       } 
     }));
   },
-  //addComment: (body: string, name?: string, email?: string, postID?:number) => {
+  
   addComment: (comment: CommentModel) => {
+    console.log(comment);
     //TODO: add to DB and then add to local store
     set((state) => ({
       comments: [...state.comments, comment],

@@ -8,7 +8,6 @@ import { ReplyFormToggle } from "./ReplyFormToggle"
 import { ReplyListToggle } from "./ReplyListToggle"
 import { CommentModel, CommentSystemModel } from "../Interfaces";
 
-//export const CommentBox = ({...props}: {comments: CommentModel[], clickAdd: CommentSystemModel}) => {
   export const CommentBox = ({comments}: CommentSystemModel) => {
   return(
     <>
