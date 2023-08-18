@@ -8,7 +8,7 @@ import { ReplyFormToggle } from "./ReplyFormToggle"
 import { ReplyListToggle } from "./ReplyListToggle"
 import { CommentModel, CommentSystemModel } from "../Interfaces";
 
-  export const CommentBox = ({comments}: CommentSystemModel) => {
+  export const CommentBox = ({comments, removeComment}: CommentSystemModel) => {
   return(
     <>
     {
@@ -35,6 +35,7 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
                     <ReplyListToggle/>
                   </div>
                 </div>
+                {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
               </div>)
       })
     }

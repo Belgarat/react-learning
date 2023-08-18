@@ -26,10 +26,10 @@ export const useStore = create<CommentSystemModel>((set) => ({
       comments: [...state.comments, comment],
     }));
   },
-  removeComment: (id: number) => {
+  removeComment: (id: number|undefined) => {
     //TODO: reove from DB and then remove from local store
     set((state) => ({
-      comments: state.comments.filter((comment) => comment.id !== id),
+        comments: id ? state.comments.filter((comment) => comment.id !== id) : state.comments,
     }));
   },
   //TODO: editComment
