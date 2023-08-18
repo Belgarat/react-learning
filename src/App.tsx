@@ -10,10 +10,10 @@ function App() {
   return (
     <>
       <div className="App">
-        <ReplyForm comment={comment} updateBodyValue={updateBodyValue} maxlength={maxlength} comments={comments}/>
+        <ReplyForm comment={comment} updateBodyValue={updateBodyValue} addComment={addComment} maxlength={maxlength} comments={comments}/>
         <br/><br/>
         Comments
-        <CommentBox comments={comments} maxlength={maxlength} comment={comment} />
+        <CommentBox comments={comments} addComment={addComment} maxlength={maxlength} comment={comment} />
       </div>
     </>
   );

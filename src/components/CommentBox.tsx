@@ -12,9 +12,9 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
   return(
     <>
     {
-      comments.map((cmnt: CommentModel) => {
+      comments.map((cmnt: CommentModel, idx: number) => {
         console.log(cmnt);
-        return <>
+        return (<div key={`'cmd-${idx}`}>
                 <div>
                   <Avatar/>
                 </div>
@@ -35,7 +35,7 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
                     <ReplyListToggle/>
                   </div>
                 </div>
-              </>
+              </div>)
       })
     }
     </>

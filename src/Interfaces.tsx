@@ -20,7 +20,7 @@ export interface CommentSystemModel {
   comment: CommentModel;
   comments: CommentModel[];
   updateBodyValue?: (newValue: string) => void;
-  addComment?: (comment: CommentModel) => void;
+  addComment: (comment: CommentModel) => void;
   removeComment?: (id: number) => void;
   editComment?: (id: number) => void;
 }
