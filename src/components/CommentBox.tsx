@@ -13,18 +13,18 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
     <>
     {
       comments.map((cmnt: CommentModel, idx: number) => {
-        console.log(cmnt);
+        //console.log(typeof(cmnt.name));
         return (<div key={`'cmd-${idx}`}>
                 <div>
                   <Avatar/>
                 </div>
                 <div>
                   <div>
-                    <Username/>
-                    <CommentDate/>
+                    <Username userName={cmnt.name}/>
+                    <CommentDate commentDate={cmnt.date}/>
                   </div>
                   <div>
-                    <CommentText/>
+                    <CommentText commentBody={cmnt.body}/>
                   </div>
                   <div>
                     <LikeButton/>
@@ -34,8 +34,8 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
                   <div>
                     <ReplyListToggle/>
                   </div>
+                  {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
                 </div>
-                {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
               </div>)
       })
     }

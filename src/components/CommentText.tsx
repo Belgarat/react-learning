@@ -1,7 +1,7 @@
-export const CommentText = () => {
+export const CommentText = (commentBody: string) => {
   return(
     <>
-      <span></span>
+      {commentBody && <span>commentBody</span>}
     </>
   )
 }

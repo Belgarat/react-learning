@@ -1,7 +1,7 @@
-export const CommentDate = () => {
+export const CommentDate = (commentDate?: string) => {
   return(
     <>
-    <span></span>
+    {commentDate && <span>commentDate</span>}
     </>
   )
 }

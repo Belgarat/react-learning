@@ -1,7 +1,7 @@
-export const Username = () => {
+export const Username = (userName?: string) => {
   return(
     <>
-    <span></span>
+    {userName && <span>userName</span>}
     </>
   )
 }
