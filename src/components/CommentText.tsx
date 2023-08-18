@@ -1,7 +1,7 @@
-export const CommentText = (commentBody: string) => {
+export const CommentText = (props: {body: string}) => {
   return(
     <>
-      {commentBody && <span>commentBody</span>}
+      {props.body && <span>{props.body}</span>}
     </>
   )
 }

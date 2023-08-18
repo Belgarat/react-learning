@@ -12,32 +12,33 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
   return(
     <>
     {
-      comments.map((cmnt: CommentModel, idx: number) => {
-        //console.log(typeof(cmnt.name));
-        return (<div key={`'cmd-${idx}`}>
-                <div>
-                  <Avatar/>
-                </div>
-                <div>
+      //test if comments lenght is > 0
+        comments.map((cmnt: CommentModel, idx: number) => {
+          //console.log(typeof(cmnt.name));
+          return (<div key={`'cmd-${idx}`}>
                   <div>
-                    <Username userName={cmnt.name}/>
-                    <CommentDate commentDate={cmnt.date}/>
+                    <Avatar/>
                   </div>
                   <div>
-                    <CommentText commentBody={cmnt.body}/>
+                    <div>
+                      <Username props={cmnt.name}/>
+                      <CommentDate props={cmnt.date?.toString()}/>
+                    </div>
+                    <div>
+                      <CommentText props={cmnt.body}/>
+                    </div>
+                    <div>
+                      <LikeButton/>
+                      <LikeCounter/>
+                      <ReplyFormToggle/>
+                    </div>
+                    <div>
+                      <ReplyListToggle/>
+                    </div>
+                    {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
                   </div>
-                  <div>
-                    <LikeButton/>
-                    <LikeCounter/>
-                    <ReplyFormToggle/>
-                  </div>
-                  <div>
-                    <ReplyListToggle/>
-                  </div>
-                  {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
-                </div>
-              </div>)
-      })
+                </div>)
+        })
     }
     </>
   )

@@ -20,7 +20,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
   
   addComment: (comment: CommentModel) => {
-    console.log(comment);
+    //console.log(comment);
     //TODO: add to DB and then add to local store
     set((state) => ({
       comments: [...state.comments, comment],
@@ -34,7 +34,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
         comments: id ? state.comments.filter((comment) => comment.id !== id) : state.comments,
     }));
   },
-  
+
   //TODO: editComment
   editComment: (id: number) => {  },
 }));
