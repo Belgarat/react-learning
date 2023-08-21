@@ -1,9 +1,9 @@
 import { CommentModel } from "../Interfaces";
 
-export const CommentText = (props: CommentModel) => {
+export const CommentText = ({...body}) => {
   return(
     <>
-      <span>{props.body}</span>
+    {body && <span>body</span>}
     </>
   )
 }

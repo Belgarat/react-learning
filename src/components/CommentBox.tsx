@@ -22,10 +22,10 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
                   <div>
                     <div>
                       <Username name={cmnt.name}/>
-                      <CommentDate {...cmnt}/>
+                      <CommentDate date={cmnt.date}/>
                     </div>
                     <div>
-                      <CommentText {...cmnt}/>
+                      <CommentText body={cmnt.body}/>
                     </div>
                     <div>
                       <LikeButton/>
