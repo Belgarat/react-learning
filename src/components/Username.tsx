@@ -1,7 +1,8 @@
-export const Username = ({...name}) => {
+export const Username = (props: {name: string}) => {
+  console.log('Username: ', props.name);
   return(
     <>
-    {name && <span>name</span>}
+    {props.name && <span>{props.name}</span>}
     </>
   )
 }

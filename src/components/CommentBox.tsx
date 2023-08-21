@@ -14,7 +14,7 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
     {
       //test if comments lenght is > 0
         comments.map((cmnt: CommentModel, idx: number) => {
-          //console.log(typeof(cmnt.name));
+          console.log('CommentBox: ', cmnt);
           return (<div key={`'cmd-${idx}`}>
                   <div>
                     <Avatar/>

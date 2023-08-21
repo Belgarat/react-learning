@@ -20,12 +20,11 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
   
   addComment: (comment: CommentModel) => {
-    console.log(comment);
+    console.log('Add comment: ', comment);
     //TODO: add to DB and then add to local store
     set((state) => ({
       comments: [...state.comments, comment],
     }));
-    comment.body="";
   },
 
   removeComment: (id: number|undefined) => {

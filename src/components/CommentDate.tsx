@@ -1,9 +1,10 @@
 import { CommentModel } from "../Interfaces";
 
-export const CommentDate = ({...date}) => {
+export const CommentDate = (props: {date: Date|undefined}) => {
+  console.log('CommentDate: ', props.date);
   return(
     <>
-    {date && <span>{date.toString()}</span>}
+    {props.date && <span>{props.date.toString()}</span>}
     </>
   )
 }
