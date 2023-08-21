@@ -21,11 +21,11 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
                   </div>
                   <div>
                     <div>
-                      <Username props={cmnt.name}/>
-                      <CommentDate props={cmnt.date?.toString()}/>
+                      <Username {...cmnt}/>
+                      <CommentDate {...cmnt}/>
                     </div>
                     <div>
-                      <CommentText props={cmnt.body}/>
+                      <CommentText {...cmnt}/>
                     </div>
                     <div>
                       <LikeButton/>
