@@ -21,7 +21,7 @@ import { CommentModel, CommentSystemModel } from "../Interfaces";
                   </div>
                   <div>
                     <div>
-                      <Username {...cmnt}/>
+                      <Username name={cmnt.name}/>
                       <CommentDate {...cmnt}/>
                     </div>
                     <div>

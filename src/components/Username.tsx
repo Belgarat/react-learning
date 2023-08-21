@@ -1,10 +1,7 @@
-import { CommentModel } from "../Interfaces";
-
-export const Username = (props: CommentModel) => {
+export const Username = ({...name}) => {
   return(
-    //console.log(props.userName)
     <>
-    {props.name && <span>{props.name}</span>}
+    {name && <span>name</span>}
     </>
   )
 }
