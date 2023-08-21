@@ -6,7 +6,7 @@ export const ReplyCancelButton = ({comment, updateBodyValue}: {comment: CommentM
       <button 
       className="replyformflex-button-cancel"
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-          comment.body=updateBodyValue("");
+          updateBodyValue("");
         }
       }>Cancel</button>
     </>

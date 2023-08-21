@@ -1,7 +1,7 @@
 import React from "react"
 import { CommentModel } from "../Interfaces"
 
-export const ReplySaveButton = ({comment, addComment}: {comment: CommentModel, addComment: any}) => {
+export const ReplySaveButton = ({comment, addComment, updateBodyValue}: {comment: CommentModel, addComment: any, updateBodyValue: any}) => {
   return(
     <>
       <button 
@@ -10,6 +10,7 @@ export const ReplySaveButton = ({comment, addComment}: {comment: CommentModel, a
           if(comment.body.length>0){
             //console.log("Clicked ADD");
             addComment(comment);
+            updateBodyValue('');
           }
         }
       }>Add</button>

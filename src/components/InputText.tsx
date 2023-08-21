@@ -12,7 +12,7 @@ export const InputText = ({maxlength, updateBodyValue, comment}: {maxlength: num
         onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
         //check maxlength
         if (maxlength && event.target.value.length <= maxlength) {
-            comment.body=updateBodyValue(event.target.value);
+            updateBodyValue(event.target.value);
         }
       }}
       />

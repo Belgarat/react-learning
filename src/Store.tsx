@@ -12,19 +12,17 @@ export const useStore = create<CommentSystemModel>((set) => ({
   //update comment textarea
   updateBodyValue: (newValue: string) => {
     set((state) => ({
-      comment: {
-        name: state.comment.name,
-        body: newValue,
-      } 
+      comment: {...state.comment, body: newValue},
     }));
   },
   
   addComment: (comment: CommentModel) => {
     console.log('Add comment: ', comment);
     //TODO: add to DB and then add to local store
-    set((state) => ({
-      comments: [...state.comments, comment],
-    }));
+    set((state) => {
+      console.log("add Comment", state, comment);
+      return ({comments: [...state.comments, comment]})
+    });
   },
 
   removeComment: (id: number|undefined) => {
