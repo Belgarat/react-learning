@@ -7,39 +7,37 @@ import { LikeCounter } from "./LikeCounter"
 import { ReplyFormToggle } from "./ReplyFormToggle"
 import { ReplyListToggle } from "./ReplyListToggle"
 import { CommentModel, CommentSystemModel } from "../Interfaces";
+import "./CommentBox.css";
 
   export const CommentBox = ({comments, removeComment}: CommentSystemModel) => {
   return(
     <>
+    <div className="commentboxflex">Comments
     {
-      //test if comments lenght is > 0
         comments.map((cmnt: CommentModel, idx: number) => {
-          console.log('CommentBox: ', cmnt);
           return (<div key={`'cmd-${idx}`}>
-                  <div>
-                    <Avatar/>
-                  </div>
-                  <div>
-                    <div>
+                    <div className="commentbox-first-row">
+                      <Avatar/>
                       <Username name={cmnt.name}/>
                       <CommentDate date={cmnt.date}/>
                     </div>
-                    <div>
+                    <div className="commentbox-second-row">
                       <CommentText body={cmnt.body}/>
                     </div>
-                    <div>
+                    <div className="commentbox-second-row">
                       <LikeButton/>
                       <LikeCounter/>
                       <ReplyFormToggle/>
+                      {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
                     </div>
-                    <div>
+                    <div className="commentbox-second-row">
                       <ReplyListToggle/>
                     </div>
-                    {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
-                  </div>
-                </div>)
+                    <div className="commentbox-spacer"></div>
+                  </div>)
         })
     }
+    </div>
     </>
   )
 }

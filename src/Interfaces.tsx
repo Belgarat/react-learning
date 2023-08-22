@@ -13,6 +13,8 @@ export interface CommentModel {
   date?: Date;
   //not yet implemented... to be used to reply to other comment
   commentID?: number;
+  //like counter
+  likes?: number;
 }
 
 export interface CommentSystemModel {

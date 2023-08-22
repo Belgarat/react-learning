@@ -4,7 +4,7 @@ export const CommentText = (props: {body: string}) => {
   console.log('CommentText: ', props)
   return(
     <>
-    {props.body && <span>{props.body}</span>}
+    {props.body && <div>{(props.body).replace(/\n/g, "<br />")}</div>}
     </>
   )
 }

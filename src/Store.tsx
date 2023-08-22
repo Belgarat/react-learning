@@ -5,7 +5,8 @@ export const useStore = create<CommentSystemModel>((set) => ({
   maxlength: 100,
   comment: {
     name: "author name",
-    body: ""
+    body: "",
+    likes: 0,
   },
   comments: [],
   //TODO: fetch and add preloaded comments
