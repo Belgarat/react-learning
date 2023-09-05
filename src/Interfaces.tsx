@@ -14,7 +14,7 @@ export interface CommentModel {
   //not yet implemented... to be used to reply to other comment
   commentID?: number;
   //like counter
-  likes?: number;
+  likes: number;
 }
 
 export interface CommentSystemModel {
@@ -25,4 +25,5 @@ export interface CommentSystemModel {
   addComment: (comment: CommentModel) => void;
   removeComment?: (id: number|undefined) => void;
   editComment?: (id: number) => void;
+  likeComment?: (id: number|undefined) => void;
 }

@@ -16,12 +16,20 @@ export const useStore = create<CommentSystemModel>((set) => ({
       comment: {...state.comment, body: newValue},
     }));
   },
+
+  likeComment: (id: number|undefined) => {
+    console.log("likeComment", id);
+    set((state) => ({
+      
+      comment: {...state.comment, likes: state.comment.likes + 1},
+    }));
+  },
   
   addComment: (comment: CommentModel) => {
-    console.log('Add comment: ', comment);
+    //console.log('Add comment: ', comment);
     //TODO: add to DB and then add to local store
     set((state) => {
-      console.log("add Comment", state, comment);
+      //console.log("add Comment", state, comment);
       return ({comments: [...state.comments, comment]})
     });
   },

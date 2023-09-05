@@ -8,8 +8,9 @@ import { ReplyFormToggle } from "./ReplyFormToggle"
 import { ReplyListToggle } from "./ReplyListToggle"
 import { CommentModel, CommentSystemModel } from "../Interfaces";
 import "./CommentBox.css";
+import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
 
-  export const CommentBox = ({comments, removeComment}: CommentSystemModel) => {
+  export const CommentBox = ({comments, removeComment, likeComment}: CommentSystemModel) => {
   return(
     <>
     <div className="commentboxflex">Comments
@@ -25,7 +26,7 @@ import "./CommentBox.css";
                       <CommentText body={cmnt.body}/>
                     </div>
                     <div className="commentbox-second-row">
-                      <LikeButton/>
+                      <LikeIcon className='likebutton' onClick={() => likeComment && likeComment(cmnt.id)}/>
                       <LikeCounter/>
                       <ReplyFormToggle/>
                       {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}

@@ -1,7 +1,11 @@
+import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
+import "./LikeButton.css";
+
+
 export const LikeButton = () => {
   return(
     <>
-    <button>Like it!</button>
+    <LikeIcon className='likebutton'/>
     </>
   )
 }
