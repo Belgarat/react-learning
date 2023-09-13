@@ -4,7 +4,7 @@ import "./CommentBox.css";
 import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
 
   export const CommentBox = ({comments, removeComment, likeComment}: CommentSystemModel) => {
-  return(
+    return(
     <>
     <div className="commentboxflex">Comments
     {
@@ -24,7 +24,7 @@ import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
             </div>
             <div className="commentbox-second-row">
               <LikeIcon className='likebutton' onClick={() => likeComment && likeComment(cmnt.id)}/>
-              <span>#Likes: {Math.floor(Math.random() * 101)}</span>
+              <span>#Likes: {cmnt.likes}</span>
               {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
             </div>
             <div className="commentbox-spacer"></div>
@@ -34,5 +34,4 @@ import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
     }
     </div>
     </>
-  )
-}
+  )}

@@ -5,7 +5,7 @@ import { useStore } from "./Store";
 
 function App() {
 
-  const {maxlength, comment, comments, updateBodyValue, addComment, removeComment, editComment} = useStore();
+  const {maxlength, comment, comments, updateBodyValue, addComment, removeComment} = useStore();
   
   return (
     <>

@@ -1,4 +1,4 @@
-const calulateCharLeft = (text: string, limit: number = 100): string => {
+const calulateCharLeft = (text: string, limit: number): string => {
   const delta = limit - text.length;
 
   switch (true) {

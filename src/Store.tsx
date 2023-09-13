@@ -2,10 +2,12 @@ import { create } from 'zustand';
 import { CommentModel, CommentSystemModel } from './Interfaces'
 
 export const useStore = create<CommentSystemModel>((set) => ({ 
-  maxlength: 100,
+  maxlength: 200,
   
   comment: {
-    name: "author name",
+    name: "John Smith",
+    avatar: "Avatar.css",
+    email: "testuser@testmail.com",
     body: "",
     likes: 0,
   },
