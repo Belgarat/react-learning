@@ -1,9 +1,0 @@
-.likebutton{
-  width: 1.2em;
-  height: 1.2em;
-}
-
-.likebutton:hover{
-  background-color: lightgrey;
-  cursor: pointer;
-}

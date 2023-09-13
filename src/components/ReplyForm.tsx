@@ -1,23 +1,49 @@
 import { Avatar } from "./Avatar"
-import { InputText } from "./InputText"
+import { CharCounter } from "./CharCounter";
 import { CommentModel } from "../Interfaces"
-import { ReplySaveButton  } from "./ReplySaveButton"
-import { ReplyCancelButton } from "./ReplyCancelButton"
 import "./ReplyForm.css";
 
-export const ReplyForm = ({maxlength, updateBodyValue, addComment, removeComment, editComment, comment}: {maxlength: number, updateBodyValue?: any, addComment?: any, removeComment?: any, editComment?: any, comment: CommentModel}) => {
+export const ReplyForm = ({maxlength, updateBodyValue, addComment, comment}: {maxlength: number, updateBodyValue?: any, addComment?: any, comment: CommentModel}) => {
   return(
     <>
-      <div id="ReplyForm" className="replyformflex">
-          <div className="replyformflex-first-row">
-            <Avatar/>
-            <InputText maxlength={maxlength} updateBodyValue={updateBodyValue} comment={comment}/>
-          </div>
-          <div className="replyformflex-last-row">
-            <ReplyCancelButton updateBodyValue={updateBodyValue} comment={comment}/>
-            <ReplySaveButton comment={comment} updateBodyValue={updateBodyValue} addComment={addComment}/>
-          </div>
-      </div>
+    <div id="ReplyForm" className="replyformflex">
+        <div className="replyformflex-first-row">
+          <Avatar/>
+          <textarea className="replyform-textarea"
+            name="comment"
+            value={comment.body}
+            placeholder="Insert your comment..." 
+            onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+            //check maxlength
+            if (maxlength && event.target.value.length <= maxlength) {
+                updateBodyValue(event.target.value);
+            }
+          }}
+          />
+          <CharCounter body={comment.body} maxlength={maxlength}/>
+        </div>
+        <div className="replyformflex-last-row">
+          {/* CANCEL BUTTON */}
+          <button 
+          className="replyformflex-button-cancel"
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+              updateBodyValue("");
+            }
+          }>Cancel</button>
+
+          {/* SAVE BUTTON */}
+          <button 
+          className="replyformflex-button-add"
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+              if(comment.body.length>0){
+                //console.log("Clicked ADD");
+                addComment(comment);
+                updateBodyValue('');
+              }
+            }
+          }>Add</button>
+        </div>
+    </div>
     </>
   )
 }

@@ -42,6 +42,4 @@ export const useStore = create<CommentSystemModel>((set) => ({
     }));
   },
 
-  //TODO: editComment
-  editComment: (id: number) => {  },
 }));
