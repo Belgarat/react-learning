@@ -3,11 +3,13 @@ import { CommentModel, CommentSystemModel } from './Interfaces'
 
 export const useStore = create<CommentSystemModel>((set) => ({ 
   maxlength: 100,
+  
   comment: {
     name: "author name",
     body: "",
     likes: 0,
   },
+  
   comments: [],
   //TODO: fetch and add preloaded comments
   //update comment textarea
@@ -20,7 +22,6 @@ export const useStore = create<CommentSystemModel>((set) => ({
   likeComment: (id: number|undefined) => {
     console.log("likeComment", id);
     set((state) => ({
-      
       comment: {...state.comment, likes: state.comment.likes + 1},
     }));
   },
