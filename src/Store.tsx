@@ -6,7 +6,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
   
   comment: {
     name: "John Smith",
-    avatar: "Avatar.css",
+    avatar: "img_avatar.png",
     email: "testuser@testmail.com",
     body: "",
     likes: 0,
@@ -22,9 +22,13 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
 
   likeComment: (id: number|undefined) => {
-    console.log("likeComment", id);
+    //console.log("likeComment: ", id);
     set((state) => ({
-      comment: {...state.comment, likes: state.comment.likes + 1},
+      comments: state.comments.map((cmnt) =>
+      cmnt.id === id
+          ? ({ ...cmnt, likes: (cmnt.likes+1) } as CommentModel)
+          : cmnt
+      ),
     }));
   },
   

@@ -5,14 +5,14 @@ import { useStore } from "./Store";
 
 function App() {
 
-  const {maxlength, comment, comments, updateBodyValue, addComment, removeComment} = useStore();
+  const {maxlength, comment, comments, updateBodyValue, addComment, removeComment, likeComment} = useStore();
   
   return (
     <>
     <div className="App">
       <ReplyForm comment={comment} updateBodyValue={updateBodyValue} addComment={addComment} maxlength={maxlength}/>
       <br/><br/>
-      <CommentBox comments={comments} addComment={addComment} maxlength={maxlength} comment={comment} />
+      <CommentBox comments={comments} addComment={addComment} maxlength={maxlength} comment={comment} likeComment={likeComment}/>
     </div>
     </>
   );

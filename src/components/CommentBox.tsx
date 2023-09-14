@@ -10,7 +10,7 @@ import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
     {
       comments.map((cmnt: CommentModel, idx: number) => {
         return (
-          <div key={`'cmd-${idx}`}>
+          <div key={`cmd-${idx}`}>
             <div className="commentbox-first-row">
               <Avatar/>
               {cmnt.name && <span>{cmnt.name}</span>}
