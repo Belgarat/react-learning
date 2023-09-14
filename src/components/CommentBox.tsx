@@ -2,6 +2,7 @@ import { Avatar } from "./Avatar"
 import { CommentModel, CommentSystemModel } from "../Interfaces";
 import "./CommentBox.css";
 import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
+import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
 
   export const CommentBox = ({comments, removeComment, likeComment}: CommentSystemModel) => {
     return(
@@ -25,7 +26,7 @@ import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
             <div className="commentbox-second-row">
               <LikeIcon className='likebutton' onClick={() => likeComment && likeComment(cmnt.id)}/>
               <span>#Likes: {cmnt.likes}</span>
-              {<button onClick={() => removeComment && removeComment(cmnt.id)}>Del</button>}
+              {<TrashIcon className="trashbutton" title="Delete this comment" onClick={() => removeComment && removeComment(cmnt.id)}/>}
             </div>
             <div className="commentbox-spacer"></div>
           </div>

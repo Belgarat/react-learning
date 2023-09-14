@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <ReplyForm comment={comment} updateBodyValue={updateBodyValue} addComment={addComment} maxlength={maxlength}/>
       <br/><br/>
-      <CommentBox comments={comments} addComment={addComment} maxlength={maxlength} comment={comment} likeComment={likeComment}/>
+      <CommentBox comments={comments} addComment={addComment} maxlength={maxlength} comment={comment} likeComment={likeComment} removeComment={removeComment}/>
     </div>
     </>
   );

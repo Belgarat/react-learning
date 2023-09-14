@@ -22,7 +22,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
 
   likeComment: (id: number|undefined) => {
-    //console.log("likeComment: ", id);
+    console.log("likeComment: ", id);
     set((state) => ({
       comments: state.comments.map((cmnt) =>
       cmnt.id === id
@@ -33,7 +33,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
   
   addComment: (comment: CommentModel) => {
-    //console.log('Add comment: ', comment);
+    console.log('Add comment: ', comment);
     //TODO: add to DB and then add to local store
     set((state) => {
       //console.log("add Comment", state, comment);
@@ -42,9 +42,10 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
 
   removeComment: (id: number|undefined) => {
+    console.log('Remove comment: ', id);
     //TODO: reove from DB and then remove from local store
     set((state) => ({
-        comments: id ? state.comments.filter((comment) => comment.id !== id) : state.comments,
+      comments: state.comments.filter((cmnt) => cmnt.id !== id),
     }));
   },
 
