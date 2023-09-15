@@ -8,8 +8,8 @@ const handleClick = () => {
 export const Avatar = ({icon}: {icon: string}) => {
   return(
     <>
-    <AvatarIcons/>
-    <img src={icon} alt="Avatar" className="avatar" onClick={handleClick}/>
+    
+    <img src={AvatarIcons} alt="Avatar" className="avatar" onClick={handleClick}/>
     </>
   )
 }
