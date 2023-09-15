@@ -1,14 +1,15 @@
-import img_avatar from "./img_avatar.png"
+import AvatarIcons from "./avatar_icons/img_avatar.png";
 import "./Avatar.css"
 
 const handleClick = () => {
   console.log("Clicked on avatar icon");
 }
 
-export const Avatar = () => {
+export const Avatar = ({icon}: {icon: string}) => {
   return(
     <>
-    <img src={img_avatar} alt="Avatar" className="avatar" onClick={handleClick}/>
+    <AvatarIcons/>
+    <img src={icon} alt="Avatar" className="avatar" onClick={handleClick}/>
     </>
   )
 }

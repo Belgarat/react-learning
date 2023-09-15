@@ -13,7 +13,7 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
         return (
           <div key={`cmd-${idx}`}>
             <div className="commentbox-first-row">
-              <Avatar/>
+              <Avatar icon={cmnt.avatar}/>
               {cmnt.name && <span>{cmnt.name}</span>}
               {cmnt.date && <span>{cmnt.date.toString()}</span>}
             </div>

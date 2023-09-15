@@ -16,7 +16,7 @@ export interface CommentModel {
   //like counter
   likes: number;
   //avatar
-  avatar?: string;
+  avatar: string;
 }
 
 export interface CommentSystemModel {

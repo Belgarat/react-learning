@@ -9,7 +9,7 @@ export const ReplyForm = ({maxlength, updateBodyValue, addComment, comment}: {ma
     <div id="ReplyForm" className="replyformflex">
         <div className="replyformflex-first-row">
           {/* AVATAR */}
-          <Avatar/>
+          <Avatar icon={comment.avatar}/>
           {/* TEXT */}
           <textarea className="replyform-textarea"
             name="comment"
