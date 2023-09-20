@@ -26,22 +26,8 @@ export const useStore = create<CommentSystemModel>((set) => ({
       }
     }
   },
-  
   comments: [],
-  //TODO: fetch and add preloaded comments
-  fetchComments: async () => {
-    const response = await fetch("http://localhost:1337/api/comments?populate=*")
-    set({ comments: await response.json() });
-  },
-
   authors: [],
-  //TODO: fetch and add preloaded comments
-  fetchAuthors: async () => {
-    const response = await fetch("http://localhost:1337/api/authors?populate=*")
-    set({ authors: await response.json() });
-  },
-
-
   //update comment textarea
   updateBodyValue: (newValue: string) => {
     set((state) => ({
@@ -78,3 +64,13 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
 
 }));
+// TODO: fetch and add preloaded comments
+export const fetchComments = async () => {
+    const response = await fetch("http://localhost:1337/api/comments?populate=*")
+    return response.json();
+}
+// TODO: fetch and add preloaded comments
+export const fetchAuthors = async () => {
+    const response = await fetch("http://localhost:1337/api/authors?populate=*")
+    return response.json();
+}
