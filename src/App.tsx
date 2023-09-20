@@ -1,12 +1,23 @@
+import { useEffect } from "react";
 import "./App.css";
 import { CommentBox } from "./components/CommentBox";
 import { ReplyForm } from "./components/ReplyForm";
-import { useStore } from "./Store";
+import { useStore, fetchComments, fetchAuthors } from "./Store";
 
 function App() {
 
   const {maxlength, comment, comments, updateBodyValue, addComment, removeComment, likeComment} = useStore();
   
+  useEffect(() => {
+    fetchComments();
+  },[fetchComments]);
+
+  useEffect(() => {
+    fetchAuthors();
+  },[fetchAuthors]);
+
+  console.log(comments);
+
   return (
     <>
     <div className="App">
