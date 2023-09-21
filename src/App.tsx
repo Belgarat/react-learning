@@ -6,24 +6,26 @@ import { useStore, fetchComments, fetchAuthors } from "./Store";
 
 function App() {
 
-  const {maxlength, comment, comments, updateBodyValue, addComment, removeComment, likeComment} = useStore();
+  const {maxlength, authors, comment, comments, updateBodyValue, addComment, removeComment, likeComment} = useStore();
   
   useEffect(() => {
-    fetchComments();
-  },[fetchComments]);
+    comments: fetchComments();
+    console.log(comments);
+  },[]);
 
   useEffect(() => {
-    fetchAuthors();
-  },[fetchAuthors]);
+    authors: fetchAuthors();
+    console.log(authors);
+  },[]);
 
-  console.log(comments);
+  console.log(comments,authors);
 
   return (
     <>
     <div className="App">
       <ReplyForm comment={comment} updateBodyValue={updateBodyValue} addComment={addComment} maxlength={maxlength}/>
       <br/><br/>
-      <CommentBox comments={comments} addComment={addComment} maxlength={maxlength} comment={comment} likeComment={likeComment} removeComment={removeComment}/>
+      <CommentBox authors={authors} comments={comments} addComment={addComment} maxlength={maxlength} comment={comment} likeComment={likeComment} removeComment={removeComment}/>
     </div>
     </>
   );

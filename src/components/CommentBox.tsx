@@ -1,5 +1,5 @@
 import { Avatar } from "./Avatar"
-import { CommentModel, CommentSystemModel } from "../Interfaces";
+import { CommentModel, CommentSystemModel, AuthorModel } from "../Interfaces";
 import "./CommentBox.css";
 import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
 import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
@@ -13,19 +13,16 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
         return (
           <div key={`cmd-${idx}`}>
             <div className="commentbox-first-row">
-              <Avatar icon={cmnt.avatar}/>
-              {cmnt.name && <span>{cmnt.name}</span>}
-              {cmnt.date && <span>{cmnt.date.toString()}</span>}
+              <Avatar/>
+              {/*cmnt.name && <span>{cmnt.name}</span>*/}
+              {/*cmnt.date && <span>{cmnt.date.toString()}</span>*/}
             </div>
             <div className="commentbox-second-row">
-              {
-              //cmnt.body && <div>{(cmnt.body).replace(/\n/g, "<br />")}</div>
-              cmnt.body && <div className="commentText">{cmnt.body}</div>
-              }
+              {cmnt.attributes.body && <div className="commentText">{cmnt.attributes.body}</div>}
             </div>
             <div className="commentbox-second-row">
               <LikeIcon className='likebutton' onClick={() => likeComment && likeComment(cmnt.id)}/>
-              <span>#Likes: {cmnt.likes}</span>
+              <span>#Likes: {/*cmnt.likes*/}</span>
               {<TrashIcon className="trashbutton" title="Delete this comment" onClick={() => removeComment && removeComment(cmnt.id)}/>}
             </div>
             <div className="commentbox-spacer"></div>

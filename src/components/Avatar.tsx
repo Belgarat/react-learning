@@ -5,7 +5,7 @@ const handleClick = () => {
   console.log("Clicked on avatar icon");
 }
 
-export const Avatar = ({icon}: {icon: string}) => {
+export const Avatar = () => {
   return(
     <>
     

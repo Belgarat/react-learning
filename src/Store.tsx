@@ -64,13 +64,21 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
 
 }));
+
+const BearerToken = 'Bearer dbf948aa5624edb748c32519df7f9493388cfbac1d16f9d7f326967113ac6b78cc14e82e78f34b952b430aef282494e0de7f676835ee1387df21ec4f70c2158579a6622283e4ac67b0b5d9e2af38c56b08a720765a734643e5184731d413c9d421970be610d7a9d82d5cb5074628ac1842dce9343ded82673920e9a8ba3d524d';
+const headers = { 'Authorization': BearerToken };
+
 // TODO: fetch and add preloaded comments
 export const fetchComments = async () => {
-    const response = await fetch("http://localhost:1337/api/comments?populate=*")
-    return response.json();
+    const response = await fetch("http://localhost:1337/api/comments?populate=*", {headers})
+    .then(response => response.json())
+    //console.log("Response: ",response.data);
+    return response.data;
 }
 // TODO: fetch and add preloaded comments
 export const fetchAuthors = async () => {
-    const response = await fetch("http://localhost:1337/api/authors?populate=*")
-    return response.json();
+    const response = await fetch("http://localhost:1337/api/authors?populate=*", {headers})
+    .then(response => response.json())
+    //console.log("Response: ",response.data);
+    return response.data;
 }
