@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { CommentModel, CommentSystemModel } from './Interfaces'
+import { AuthorModel, CommentModel, CommentSystemModel } from './Interfaces'
 
 export const useStore = create<CommentSystemModel>((set) => ({ 
   maxlength: 200,
@@ -58,6 +58,12 @@ export const useStore = create<CommentSystemModel>((set) => ({
     set((state) => {
       //console.log("add Comment", state, comment);
       return ({comments: [...comments]})
+    });
+  },
+  initAuthors: (authors: AuthorModel[]) => {
+    set((state) => {
+      //console.log("add Comment", state, comment);
+      return ({authors: [...authors]})
     });
   },
   removeComment: (id: number|undefined) => {
