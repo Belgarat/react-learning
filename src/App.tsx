@@ -20,12 +20,10 @@ function App() {
     console.log(authors);
   },[]);
 
-  console.log(comments,authors);
-
   return (
     <>
     <div className="App">
-      <ReplyForm comment={comment} updateBodyValue={updateBodyValue} addComment={addComment} maxlength={maxlength}/>
+      <ReplyForm authors={authors} comment={comment} updateBodyValue={updateBodyValue} addComment={addComment} maxlength={maxlength}/>
       <br/><br/>
       <CommentBox authors={authors} initComments={initComments} initAuthors={initAuthors} comments={comments} addComment={addComment} maxlength={maxlength} comment={comment} likeComment={likeComment} removeComment={removeComment}/>
     </div>

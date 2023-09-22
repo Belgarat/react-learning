@@ -1,15 +1,15 @@
 import { Avatar } from "./Avatar"
 import { CharCounter } from "./CharCounter";
-import { CommentModel } from "../Interfaces"
+import { CommentModel, AuthorModel } from "../Interfaces"
 import "./ReplyForm.css";
 
-export const ReplyForm = ({maxlength, updateBodyValue, addComment, comment}: {maxlength: number, updateBodyValue?: any, addComment?: any, comment: CommentModel}) => {
+export const ReplyForm = ({authors, maxlength, updateBodyValue, addComment, comment}: {authors: AuthorModel[], maxlength: number, updateBodyValue?: any, addComment?: any, comment: CommentModel}) => {
   return(
     <>
     <div id="ReplyForm" className="replyformflex">
         <div className="replyformflex-first-row">
-          {/* AVATAR */}
-          <Avatar/>
+          {/* AVATAR OF ME*/}
+          <Avatar authors={authors} authorId={1}/>
           {/* TEXT */}
           <textarea className="replyform-textarea"
             name="comment"

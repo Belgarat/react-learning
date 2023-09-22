@@ -1,5 +1,5 @@
 import { Avatar } from "./Avatar"
-import { CommentModel, CommentSystemModel, AuthorModel } from "../Interfaces";
+import { CommentModel, CommentSystemModel } from "../Interfaces";
 import "./CommentBox.css";
 import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
 import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
@@ -13,7 +13,7 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
         return (
           <div key={`cmd-${idx}`}>
             <div className="commentbox-first-row">
-              <Avatar/>
+              <Avatar authors={authors} authorId={cmnt.attributes.author.data.id}/>
               {cmnt.attributes.author.data.attributes.name && <span>{cmnt.attributes.author.data.attributes.name}</span>}
               {cmnt.attributes.createdAt && <span>{cmnt.attributes.createdAt.substring(0, 10)}</span>}
             </div>
