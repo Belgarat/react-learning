@@ -28,6 +28,7 @@ export interface CommentSystemModel {
   addComment: (comment: CommentModel) => void;
   removeComment?: (id: number|undefined) => void;
   editComment?: (id: number) => void;
+  initComments: (comments: CommentModel[]) => void;
   likeComment?: (id: number|undefined) => void;
 }
 

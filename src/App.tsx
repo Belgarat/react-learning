@@ -7,9 +7,10 @@ import { useStore, fetchComments, fetchAuthors } from "./Store";
 function App() {
 
   const {maxlength, authors, comment, comments, updateBodyValue, addComment, removeComment, likeComment} = useStore();
+  const initComments = useStore(state => state.initComments);
   
   useEffect(() => {
-    comments: fetchComments();
+    fetchComments().then((comments) => initComments(comments));
     console.log(comments);
   },[]);
 

@@ -54,7 +54,12 @@ export const useStore = create<CommentSystemModel>((set) => ({
       return ({comments: [...state.comments, comment]})
     });
   },
-
+  initComments: (comments: CommentModel[]) => {
+    set((state) => {
+      //console.log("add Comment", state, comment);
+      return ({comments: [...comments]})
+    });
+  },
   removeComment: (id: number|undefined) => {
     console.log('Remove comment: ', id);
     //TODO: reove from DB and then remove from local store
