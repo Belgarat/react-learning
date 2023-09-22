@@ -10,7 +10,7 @@ const handleClick = () => {
 export const Avatar = ({authors, authorId}: {authors: AuthorModel[], authorId: number}) => {
 
   const currentUser= authors.filter((author) => author.id === authorId);
-  let avatarSrc = '../../backend';
+  let avatarSrc = 'http://localhost:1337';
   const currentUserSrc=currentUser.at(0)?.attributes.avatar.data.attributes.formats.small.url;
   //console.log(currentUser);
   avatarSrc = avatarSrc+currentUserSrc;
