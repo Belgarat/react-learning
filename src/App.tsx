@@ -12,12 +12,12 @@ function App() {
   
   useEffect(() => {
     fetchComments().then((comments) => initComments(comments));
-    console.log(comments);
+    //console.log("Comments: ",comments);
   },[]);
 
   useEffect(() => {
-    authors: fetchAuthors().then((authors) => initAuthors(authors));
-    console.log(authors);
+    fetchAuthors().then((authors) => initAuthors(authors));
+    //console.log("Authors: ",authors);
   },[]);
 
   return (

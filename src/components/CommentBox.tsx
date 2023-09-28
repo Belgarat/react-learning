@@ -5,6 +5,7 @@ import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
 import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
 
   export const CommentBox = ({authors, comments, removeComment, likeComment}: CommentSystemModel) => {
+    //console.log("Comment Box: ",authors, comments);
     return(
     <>
     <div className="commentboxflex">Comments
@@ -22,7 +23,7 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
             </div>
             <div className="commentbox-second-row">
               <LikeIcon className='likebutton' onClick={() => likeComment && likeComment(cmnt.id)}/>
-              <span>#Likes: {/*cmnt.likes*/}</span>
+              <span>#Likes: {cmnt.attributes.likes}</span>
               {<TrashIcon className="trashbutton" title="Delete this comment" onClick={() => removeComment && removeComment(cmnt.id)}/>}
             </div>
             <div className="commentbox-spacer"></div>

@@ -8,13 +8,14 @@ const handleClick = () => {
 }
 
 export const Avatar = ({authors, authorId}: {authors: AuthorModel[], authorId: number}) => {
-
-  const currentUser= authors.filter((author) => author.id === authorId);
+  //console.log("Avatar - Authors: ", authors, authorId);
+  let currentUser= authors.filter((author) => author.id === authorId)[0];
+  //console.log("Avatar - Current User: ", currentUser);
   let avatarSrc = 'http://localhost:1337';
-  const currentUserSrc=currentUser.at(0)?.attributes.avatar.data.attributes.formats.small.url;
-  //console.log(currentUser);
+  let currentUserSrc=currentUser.attributes.avatar.data.attributes.formats.small.url;
+  
   avatarSrc = avatarSrc+currentUserSrc;
-  //console.log(avatarSrc);
+  console.log(avatarSrc);
 
   return(
     <>
