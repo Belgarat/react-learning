@@ -9,7 +9,7 @@ export const ReplyForm = ({authors, maxlength, updateBodyValue, addComment, comm
     <div id="ReplyForm" className="replyformflex">
         <div className="replyformflex-first-row">
           {/* AVATAR OF ME*/}
-          <Avatar authors={authors} authorId={1}/>
+          <Avatar author={authors.find((author) => author.id === 1)}/>
           {/* TEXT */}
           <textarea className="replyform-textarea"
             name="comment"

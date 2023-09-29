@@ -4,6 +4,8 @@ import "./CommentBox.css";
 import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
 import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
 
+
+
   export const CommentBox = ({authors, comments, removeComment, likeComment}: CommentSystemModel) => {
     //console.log("Comment Box: ",authors, comments);
     return(
@@ -14,7 +16,7 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
         return (
           <div key={`cmd-${idx}`}>
             <div className="commentbox-first-row">
-              <Avatar authors={authors} authorId={cmnt.attributes.author.data.id}/>
+              <Avatar author={authors.find((author) => author.id === cmnt.attributes.author.data.id)}/>
               {cmnt.attributes.author.data.attributes.name && <span>{cmnt.attributes.author.data.attributes.name}</span>}
               {cmnt.attributes.createdAt && <span>{cmnt.attributes.createdAt.substring(0, 10)}</span>}
             </div>

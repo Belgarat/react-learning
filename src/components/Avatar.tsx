@@ -7,14 +7,20 @@ const handleClick = () => {
   console.log("Clicked on avatar icon");
 }
 
-export const Avatar = ({authors, authorId}: {authors: AuthorModel[], authorId: number}) => {
-  //console.log("Avatar - Authors: ", authors, authorId);
-  let currentUser= authors.filter((author) => author.id === authorId)[0];
-  //console.log("Avatar - Current User: ", currentUser);
+export const Avatar = ({author}: {author: AuthorModel|undefined}) => {
+  //console.log("Avatar - Authors: ", authors);
+  //let currentUser= authors;
+  console.log("Avatar - Current User: ", author);
   let avatarSrc = 'http://localhost:1337';
-  let currentUserSrc=currentUser.attributes.avatar.data.attributes.formats.small.url;
+  if(author){
+    let currentUserSrc=author.attributes.avatar.data.attributes.formats.thumbnail?.url;
+    avatarSrc = avatarSrc+currentUserSrc;
+  }else{
+    //default icon
+    avatarSrc = avatarSrc+"uploads/small_png_clipart_computer_icons_avatar_icon_design_avatar_heroes_computer_wallpaper_1c62b188d1.png";
+  }
   
-  avatarSrc = avatarSrc+currentUserSrc;
+  //
   console.log(avatarSrc);
 
   return(
