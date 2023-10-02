@@ -34,17 +34,6 @@ export const useStore = create<CommentSystemModel>((set) => ({
       comment: {...state.comment, body: newValue},
     }));
   },
-
-  likeComment: (id: number|undefined) => {
-    console.log("likeComment: ", id);
-    set((state) => ({
-      comments: state.comments.map((cmnt) =>
-      cmnt.id === id
-          ? ({ ...cmnt, likes: (cmnt.attributes.likes+1) } as CommentModel)
-          : cmnt
-      ),
-    }));
-  },
   
   addComment: (comment: CommentModel) => {
     console.log('Add comment: ', comment);
@@ -54,20 +43,34 @@ export const useStore = create<CommentSystemModel>((set) => ({
       return ({comments: [...state.comments, comment]})
     });
   },
+
   initComments: (comments: CommentModel[]) => {
     set((state) => {
       //console.log("add Comment", state, comment);
       return ({comments: [...comments]})
     });
   },
+
   initAuthors: (authors: AuthorModel[]) => {
     set((state) => {
       //console.log("add Comment", state, comment);
       return ({authors: [...authors]})
     });
   },
+
+  likeComment: (id: number|undefined) => {
+    console.log("likeComment: ", id);
+    set((state) => ({
+      comments: state.comments.map((cmnt) =>
+        cmnt.id === id
+          ? ({ ...cmnt, likes: (cmnt.attributes.likes+1) } as CommentModel)
+          : cmnt
+      ),
+    }));
+  },
+
   removeComment: (id: number|undefined) => {
-    console.log('Remove comment: ', id);
+    //console.log('Remove comment: ', id);
     //TODO: reove from DB and then remove from local store
     set((state) => ({
       comments: state.comments.filter((cmnt) => cmnt.id !== id),

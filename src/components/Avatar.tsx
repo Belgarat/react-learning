@@ -10,7 +10,7 @@ const handleClick = () => {
 export const Avatar = ({author}: {author: AuthorModel|undefined}) => {
   //console.log("Avatar - Authors: ", authors);
   //let currentUser= authors;
-  console.log("Avatar - Current User: ", author);
+  //console.log("Avatar - Current User: ", author);
   let avatarSrc = 'http://localhost:1337';
   if(author){
     let currentUserSrc=author.attributes.avatar.data.attributes.formats.thumbnail?.url;
@@ -21,7 +21,7 @@ export const Avatar = ({author}: {author: AuthorModel|undefined}) => {
   }
   
   //
-  console.log(avatarSrc);
+  //console.log(avatarSrc);
 
   return(
     <>
