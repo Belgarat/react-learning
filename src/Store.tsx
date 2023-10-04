@@ -63,7 +63,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
     set((state) => ({
       comments: state.comments.map((cmnt) =>
         cmnt.id === id
-          ? ({ ...cmnt, likes: (cmnt.attributes.likes+1) } as CommentModel)
+          ? { ...cmnt, attributes: {...cmnt.attributes, likes: (cmnt.attributes.likes + 1)}}
           : cmnt
       ),
     }));
@@ -79,7 +79,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
 
 }));
 
-const BearerToken = 'Bearer dbf948aa5624edb748c32519df7f9493388cfbac1d16f9d7f326967113ac6b78cc14e82e78f34b952b430aef282494e0de7f676835ee1387df21ec4f70c2158579a6622283e4ac67b0b5d9e2af38c56b08a720765a734643e5184731d413c9d421970be610d7a9d82d5cb5074628ac1842dce9343ded82673920e9a8ba3d524d';
+const BearerToken = 'Bearer 27d6ca3b64eb0182855f2b104ada0452f5952396ef19ff273e277d0624f40e0097f87bd715c5714411debb1a5bf0d19b152dbcef6b94d020066acb3cd168d89a6e8df0d83fb9df61438235daf025834aa622995cb922603f98dc2972d3af4528265b87fba5013f5bbc51508d395dc59126453012104665e6146243b2c49aa1ba';
 const headers = { 'Authorization': BearerToken };
 
 // TODO: fetch and add preloaded comments
