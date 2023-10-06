@@ -59,8 +59,11 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
 
   likeComment: (id: number|undefined) => {
-    console.log("likeComment: ", id);
+    //console.log("likeComment: ", id);
     set((state) => ({
+      ///PERSIST TO DB
+      //putComment(state.comments,id),
+      //...THEN UPDATE STATE
       comments: state.comments.map((cmnt) =>
         cmnt.id === id
           ? { ...cmnt, attributes: {...cmnt.attributes, likes: (cmnt.attributes.likes + 1)}}
@@ -79,7 +82,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
 
 }));
 
-const BearerToken = 'Bearer 27d6ca3b64eb0182855f2b104ada0452f5952396ef19ff273e277d0624f40e0097f87bd715c5714411debb1a5bf0d19b152dbcef6b94d020066acb3cd168d89a6e8df0d83fb9df61438235daf025834aa622995cb922603f98dc2972d3af4528265b87fba5013f5bbc51508d395dc59126453012104665e6146243b2c49aa1ba';
+const BearerToken = 'Bearer d926f5b2471d35a18a1d7f45ef53aa54e696a2bc0c18f8c45266a609097441c47ebc9c6f7401bcd212c621576555a9905b88386dbf208f0a5bdd5bcefb30a202f19dd15547b6e9cc61a0ec26948666a5421d9603b663ebc3f0988514c316453167f18264a0d5f39b85782e7c86c6e598b935da36415ba2756e7de22b602ec1fb';
 const headers = { 'Authorization': BearerToken };
 
 // TODO: fetch and add preloaded comments
@@ -95,4 +98,14 @@ export const fetchAuthors = async () => {
     .then(response => response.json())
     //console.log("Response: ",response.data);
     return response.data;
+}
+
+export const putComment = async (comments: CommentModel[], id: number) => {
+  const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'Authorization': BearerToken },
+      body: "",
+  };
+  const response = await fetch("http://localhost:1337/api/comments/", {requestOptions});
+  return response;
 }
