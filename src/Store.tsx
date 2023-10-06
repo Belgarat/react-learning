@@ -106,6 +106,6 @@ export const putComment = async (comments: CommentModel[], id: number) => {
       headers: { 'Content-Type': 'application/json', 'Authorization': BearerToken },
       body: "",
   };
-  const response = await fetch("http://localhost:1337/api/comments/", {requestOptions});
+  const response = await fetch("http://localhost:1337/api/comments/", {...requestOptions});
   return response;
 }
