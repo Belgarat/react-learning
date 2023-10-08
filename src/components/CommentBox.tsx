@@ -1,12 +1,12 @@
 import { Avatar } from "./Avatar"
-import { CommentModel, CommentSystemModel } from "../Interfaces";
+import { CommentModel, AuthorModel } from "../Interfaces";
 import "./CommentBox.css";
 import { ReactComponent as LikeIcon } from '../like-svgrepo-com.svg';
 import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
 
 
 
-  export const CommentBox = ({authors, comments, removeComment, likeComment}: CommentSystemModel) => {
+  export const CommentBox = ({authors, maxlength, updateBodyValue, comments, removeComment, likeComment}: {authors: AuthorModel[], maxlength: number, updateBodyValue?: any, removeComment?: any, likeComment?: any, comments: CommentModel[]}) => {
     //console.log("Comment Box: ",authors, comments);
     return(
     <>
@@ -21,7 +21,19 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
               {cmnt.attributes.createdAt && <span>{cmnt.attributes.createdAt.substring(0, 10)}</span>}
             </div>
             <div className="commentbox-second-row">
-              {cmnt.attributes.body && <div className="commentText">{cmnt.attributes.body}</div>}
+              <div className="commentText" 
+                contentEditable={cmnt.attributes.author.data.id === 1 ? 'true' : 'false'}
+                onInput={(event: React.ChangeEvent<HTMLDivElement>) => {
+                  //check maxlength
+                  console.log(event);
+                  if (maxlength && event.target.innerHTML.length <= maxlength) {
+                      updateBodyValue(event.target.innerHTML);
+                      
+                  }
+                }}
+              >
+                {cmnt.attributes.body && cmnt.attributes.body}
+              </div>
             </div>
             <div className="commentbox-second-row">
               <LikeIcon className='likebutton' onClick={() => likeComment && likeComment(cmnt.id)}/>
