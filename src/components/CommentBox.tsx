@@ -6,7 +6,7 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
 
 
 
-  export const CommentBox = ({authors, maxlength, updateBodyValue, comments, removeComment, likeComment}: {authors: AuthorModel[], maxlength: number, updateBodyValue?: any, removeComment?: any, likeComment?: any, comments: CommentModel[]}) => {
+  export const CommentBox = ({authors, maxlength, updateBodyValue, comments, removeComment, likeComment, editComment}: {authors: AuthorModel[], maxlength: number, updateBodyValue?: any, removeComment?: any, likeComment?: any, comments: CommentModel[], editComment: any}) => {
     //console.log("Comment Box: ",authors, comments);
     return(
     <>
@@ -28,7 +28,7 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
                   console.log(event);
                   if (maxlength && event.target.innerHTML.length <= maxlength) {
                       updateBodyValue(event.target.innerHTML);
-                      
+                      editComment(cmnt.id, event.target.innerHTML);
                   }
                 }}
               >

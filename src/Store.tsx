@@ -59,14 +59,20 @@ export const useStore = create<CommentSystemModel>((set) => ({
   },
 
   likeComment: (id: number|undefined) => {
-    //console.log("likeComment: ", id);
     set((state) => ({
-      ///PERSIST TO DB
-      //putComment(state.comments,id),
-      //...THEN UPDATE STATE
       comments: state.comments.map((cmnt) =>
         cmnt.id === id
           ? { ...cmnt, attributes: {...cmnt.attributes, likes: (cmnt.attributes.likes + 1)}}
+          : cmnt
+      ),
+    }));
+  },
+
+  editComment: (id: number|undefined, body: string|undefined) => {
+    set((state) => ({
+      comments: state.comments.map((cmnt) =>
+        cmnt.id === id
+          ? { ...cmnt, attributes: {...cmnt.attributes, body: body}}
           : cmnt
       ),
     }));
@@ -104,8 +110,9 @@ export const putComment = async (comments: CommentModel[], id: number) => {
   const requestOptions = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Authorization': BearerToken },
-      body: "",
+      body: JSON.stringify(comments.find((comment) => comment.id === id)),
   };
-  const response = await fetch("http://localhost:1337/api/comments/", {...requestOptions});
-  return response;
+  console.log(requestOptions);
+  //const response = await fetch("http://localhost:1337/api/comments/", {...requestOptions});
+  //return response;
 }
