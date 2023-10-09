@@ -6,7 +6,7 @@ import { useStore, fetchComments, fetchAuthors} from "./Store";
 
 function App() {
 
-  const {maxlength, authors, comment, comments, updateBodyValue, addComment, removeComment, likeComment} = useStore();
+  const {maxlength, authors, comment, comments, updateBodyValue, addComment, removeComment, likeComment, editComment} = useStore();
   const initComments = useStore(state => state.initComments);
   const initAuthors = useStore(state => state.initAuthors);
   

@@ -68,7 +68,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
     }));
   },
 
-  editComment: (id: number|undefined, body: string|undefined) => {
+  editComment: (id: number|undefined, body: string) => {
     set((state) => ({
       comments: state.comments.map((cmnt) =>
         cmnt.id === id

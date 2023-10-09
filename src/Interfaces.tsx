@@ -6,7 +6,7 @@ export interface CommentSystemModel {
   updateBodyValue?: (newValue: string) => void;
   addComment: (comment: CommentModel) => void;
   removeComment?: (id: number|undefined) => void;
-  editComment?: (id: number|undefined, body: string|undefined) => void;
+  editComment?: (id: number|undefined, body: string) => void;
   initComments: (comments: CommentModel[]) => void;
   initAuthors: (authors: AuthorModel[]) => void;
   likeComment?: (id: number|undefined) => void;
