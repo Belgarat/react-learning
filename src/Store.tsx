@@ -72,7 +72,7 @@ export const useStore = create<CommentSystemModel>((set) => ({
     set((state) => ({
       comments: state.comments.map((cmnt) =>
         cmnt.id === id
-          ? { ...cmnt, attributes: {...cmnt.attributes, body: body}}
+          ? { ...cmnt, attributes : {...cmnt.attributes , body: body}}
           : cmnt
       ),
     }));
@@ -110,9 +110,9 @@ export const putComment = async (comments: CommentModel[], id: number) => {
   const requestOptions = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Authorization': BearerToken },
-      body: JSON.stringify(comments.find((comment) => comment.id === id)),
+      body: '{"data": ' + JSON.stringify(comments.find((comment) => comment.id === id)) + '}',
   };
-  console.log(requestOptions);
-  //const response = await fetch("http://localhost:1337/api/comments/", {...requestOptions});
-  //return response;
+  //console.log(requestOptions.body);
+  const response = await fetch("http://localhost:1337/api/comments/"+id, {...requestOptions});
+  return response;
 }

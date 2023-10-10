@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import { CommentBox } from "./components/CommentBox";
 import { ReplyForm } from "./components/ReplyForm";
-import { useStore, fetchComments, fetchAuthors} from "./Store";
+import { useStore, fetchComments, fetchAuthors, putComment} from "./Store";
 
 function App() {
 
@@ -20,16 +20,17 @@ function App() {
     //console.log("Authors: ",authors);
   },[]);
 
-  /*const addLike = (comments, ) => {
-
-  }*/
+  const editCommentPut = (idComment: number) => {
+    const res = putComment(comments, idComment);
+    console.log(res);
+  }
 
   return (
     <>
     <div className="App">
       <ReplyForm authors={authors} comment={comment} updateBodyValue={updateBodyValue} addComment={addComment} maxlength={maxlength}/>
       <br/><br/>
-      <CommentBox authors={authors} updateBodyValue={updateBodyValue} comments={comments} maxlength={maxlength} removeComment={removeComment} editComment={editComment}/>
+      <CommentBox authors={authors} updateBodyValue={updateBodyValue} comments={comments} maxlength={maxlength} removeComment={removeComment} editComment={editCommentPut}/>
     </div>
     </>
   );

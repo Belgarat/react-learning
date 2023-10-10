@@ -29,6 +29,7 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
                   if (maxlength && event.target.innerHTML.length <= maxlength) {
                       updateBodyValue(event.target.innerHTML);
                       editComment(cmnt.id, event.target.innerHTML);
+                      return cmnt.id;
                   }
                 }}
               >
