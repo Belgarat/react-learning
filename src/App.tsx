@@ -22,7 +22,7 @@ function App() {
 
   const editCommentPut = (idComment: number) => {
     const res = putComment(comments, idComment);
-    console.log(res);
+    //console.log(res);
   }
 
   return (

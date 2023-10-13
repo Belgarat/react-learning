@@ -107,12 +107,20 @@ export const fetchAuthors = async () => {
 }
 
 export const putComment = async (comments: CommentModel[], id: number) => {
-  const requestOptions = {
+  const comment: CommentModel|undefined = comments.find((comment) => comment.id === id);
+  let body = {};
+  if (comment) {
+    body = {data: {
+      body: comment.attributes.body,
+      likes: comment.attributes.likes
+    }};
+  }
+  const requestOptions: RequestInit = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Authorization': BearerToken },
-      body: '{"data": ' + JSON.stringify(comments.find((comment) => comment.id === id)) + '}',
-  };
-  //console.log(requestOptions.body);
+      body: JSON.stringify(body),
+  }
+  //Se
   const response = await fetch("http://localhost:1337/api/comments/"+id, {...requestOptions});
   return response;
 }
