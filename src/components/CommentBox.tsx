@@ -25,10 +25,11 @@ import { ReactComponent as TrashIcon } from '../icons8-trash.svg';
                 contentEditable={cmnt.attributes.author.data.id === 1 ? 'true' : 'false'}
                 onInput={(event: React.ChangeEvent<HTMLDivElement>) => {
                   //check maxlength
-                  console.log(event);
+                  //console.log(event);
                   if (maxlength && event.target.innerHTML.length <= maxlength) {
                       updateBodyValue(event.target.innerHTML);
-                      editComment(cmnt.id, event.target.innerHTML);
+                      editComment(comments,cmnt.id, event.target.innerHTML);
+                      //editCommentPut(cmnt.id, event.target.innerHTML);
                       return cmnt.id;
                   }
                 }}

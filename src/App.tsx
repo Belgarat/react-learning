@@ -20,17 +20,18 @@ function App() {
     //console.log("Authors: ",authors);
   },[]);
 
-  const editCommentPut = (idComment: number) => {
-    const res = putComment(comments, idComment);
+  //const editCommentPut = (idComment: number, bodyNew: string) => {
+    //console.log("editCommentPut: ");
+    //const res = putComment(comments, idComment, bodyNew);
     //console.log(res);
-  }
+  //}
 
   return (
     <>
     <div className="App">
       <ReplyForm authors={authors} comment={comment} updateBodyValue={updateBodyValue} addComment={addComment} maxlength={maxlength}/>
       <br/><br/>
-      <CommentBox authors={authors} updateBodyValue={updateBodyValue} comments={comments} maxlength={maxlength} removeComment={removeComment} editComment={editCommentPut}/>
+      <CommentBox authors={authors} updateBodyValue={updateBodyValue} comments={comments} maxlength={maxlength} removeComment={removeComment} editComment={putComment}/>
     </div>
     </>
   );

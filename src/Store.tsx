@@ -106,21 +106,23 @@ export const fetchAuthors = async () => {
     return response.data;
 }
 
-export const putComment = async (comments: CommentModel[], id: number) => {
-  const comment: CommentModel|undefined = comments.find((comment) => comment.id === id);
+export const putComment = async (comments: CommentModel[], id: number, bodyNew: string) => {
+  //const cmnt: CommentModel|undefined = comments.find((comment) => comment.id === id);
   let body = {};
-  if (comment) {
+  //if (cmnt) {
     body = {data: {
-      body: comment.attributes.body,
-      likes: comment.attributes.likes
+      body: bodyNew
     }};
-  }
+  //}
   const requestOptions: RequestInit = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Authorization': BearerToken },
       body: JSON.stringify(body),
   }
-  //Se
-  const response = await fetch("http://localhost:1337/api/comments/"+id, {...requestOptions});
+  //console.log(requestOptions);
+  const response = await fetch("http://localhost:1337/api/comments/"+id, {...requestOptions})
+  .then(response => response.json())
+  //.then(useStore(state => state.editComment(id,bodyNew)));
+  //console.log(response);
   return response;
 }
