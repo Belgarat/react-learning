@@ -1,0 +1,110 @@
+.commentboxflex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 300px;
+  padding: 0.5em;
+}
+
+.commentbox-first-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  align-items: center;
+}
+
+.commentbox-second-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  align-items: center;
+  padding-top: 0.3em;
+}
+
+.commentbox-last-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding-top: 0.5em;
+}
+
+.commentbox-spacer {
+  margin-bottom: 1em;
+}
+
+.likebutton{
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.likebutton:hover{
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.trashbutton{
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.trashbutton:hover{
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.commentText{
+  white-space: pre-line;
+  text-align: left;
+}
+
+/*.commentbox-textarea {
+  width: 100%;
+  resize: none;
+  border: 0px;
+  height: 3em;
+  background-color: #EEE;
+}*/
+/*
+.commentbox-button-cancel {
+  border: 0px;
+  background-color: transparent;
+}
+
+.commentbox-button-cancel:hover {
+  border: 0px;
+  background-color: #EEE;
+  cursor: pointer;
+}
+
+.commentbox-button-cancel:active {
+  border: 0px;
+  background-color: #DDD;
+  cursor: pointer;
+}
+
+.commentbox-button-add {
+  border: 0px;
+}
+
+.commentbox-button-add:hover {
+  border: 0px;
+  cursor: pointer;
+}
+
+.commentbox-button-add:active {
+  border: 0px;
+  background-color: #DDD;
+  cursor: pointer;
+}
+
+.commentbox-charcounter {
+  color: #999;
+}
+
+.commentbox-charcounter-alert {
+  color: darkorange;
+}
+
+.commentbox-charcounter-error {
+  color: red;
+}*/
