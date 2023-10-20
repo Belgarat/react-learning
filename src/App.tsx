@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import "./App.css";
-import { CommentBox } from "./components/CommentBox";
-import { ReplyForm } from "./components/ReplyForm";
+//import { CommentBox } from "./components/CommentBox";
+import { CommentsList } from "./features/comments/commentsList";
+
+//import { ReplyForm } from "./components/ReplyForm";
 //import { useStore, fetchComments, fetchAuthors} from "./Store";
 import { CommentModel } from "./Interfaces";
 
@@ -88,14 +90,17 @@ function App() {
         />{*/}
         <br />
         <br />
-        {/*}<CommentBox
+        {
+          <CommentsList />
+          /*}<CommentBox
         authors={authors}
           updateBodyValue={updateBodyValue}
           comments={comments}
           maxlength={maxlength}
           removeComment={removeComment}
           editComment={putComment}
-        />{*/}
+        />{*/
+        }
       </div>
     </>
   );
