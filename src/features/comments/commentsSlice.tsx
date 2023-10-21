@@ -50,7 +50,13 @@ const initialState = [
 export const commentsSlice = createSlice({
   name: "comments",
   initialState,
-  reducers: {},
+  reducers: {
+    commentAdded(state, action) {
+      state.push(action.payload);
+    },
+  },
 });
+
+export const { commentAdded } = commentsSlice.actions;
 
 export default commentsSlice.reducer;

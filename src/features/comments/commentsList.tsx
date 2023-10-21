@@ -34,7 +34,7 @@ export const CommentsList = () => {
   ));
 
   return (
-    <section>
+    <section className="commentboxflex">
       <h2>Comments</h2>
       {renderedComments}
     </section>
