@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { nanoid } from "@reduxjs/toolkit";
 import { commentAdded } from "./commentsSlice";
 
 export const AddCommentForm = () => {
@@ -15,7 +14,7 @@ export const AddCommentForm = () => {
     if (body) {
       dispatch(
         commentAdded({
-          id: nanoid(),
+          id: 3,
           attributes: {
             body,
             likes: 0,

@@ -8,12 +8,12 @@ export const CommentsList = () => {
   const renderedComments = comments.map((cmnt: any) => (
     <div key={`cmd-${cmnt.id}`}>
       <div className="commentbox-first-row">
-        {cmnt.attributes.author.data.attributes.name && (
+        {/*cmnt.attributes.author.data.attributes.name && (
           <span>{cmnt.attributes.author.data.attributes.name}</span>
-        )}
-        {cmnt.attributes.createdAt && (
+        )*/}
+        {/*cmnt.attributes.createdAt && (
           <span>{cmnt.attributes.createdAt.substring(0, 10)}</span>
-        )}
+        )*/}
       </div>
 
       <div className="commentbox-second-row">
