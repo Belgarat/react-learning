@@ -52,11 +52,18 @@ export const commentsSlice = createSlice({
   initialState,
   reducers: {
     commentAdded(state, action) {
+      //console.log("commentAdded: ", state, action.payload);
       state.push(action.payload);
+    },
+    commentDeleted(state, action) {
+      //console.log("commentDeleted: ", state, action.payload.id);
+      const idToDelete = action.payload.id;
+      const commentsFiltered = state.filter((cmnt) => cmnt.id !== idToDelete);
+      console.log(commentsFiltered);
     },
   },
 });
 
-export const { commentAdded } = commentsSlice.actions;
+export const { commentAdded, commentDeleted } = commentsSlice.actions;
 
 export default commentsSlice.reducer;

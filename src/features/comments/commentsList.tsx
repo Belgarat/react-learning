@@ -1,9 +1,21 @@
 import React from "react";
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import "./commentsStyle.css";
+import { ReactComponent as LikeIcon } from "./like-svgrepo-com.svg";
+import { ReactComponent as TrashIcon } from "./icons8-trash.svg";
+import { commentDeleted } from "./commentsSlice";
 
 export const CommentsList = () => {
   const comments = useAppSelector((state) => state.comments);
+
+  const dispatch = useAppDispatch();
+
+  const onDeleteCommentClicked = (id: number) => {
+    //console.log(id);
+    if (id) {
+      dispatch(commentDeleted({ id }));
+    }
+  };
 
   const renderedComments = comments.map((cmnt: any) => (
     <div key={`cmd-${cmnt.id}`}>
@@ -23,14 +35,17 @@ export const CommentsList = () => {
       </div>
 
       <div className="commentbox-second-row">
+        <LikeIcon className="likebutton" />
         <span>#Likes: {cmnt.attributes.likes}</span>
+        <TrashIcon
+          className="trashbutton"
+          title="Delete this comment"
+          onClick={() => onDeleteCommentClicked(cmnt.id)}
+        />
       </div>
 
       <div className="commentbox-spacer"></div>
     </div>
-    /*<article className="post-excerpt" key={comment.id}>
-      <p className="post-content">{comment.content.substring(0, 100)}</p>
-    </article>*/
   ));
 
   return (
