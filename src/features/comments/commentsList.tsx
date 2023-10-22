@@ -6,7 +6,7 @@ import { ReactComponent as TrashIcon } from "./icons8-trash.svg";
 import { commentDeleted } from "./commentsSlice";
 
 export const CommentsList = () => {
-  const comments = useAppSelector((state) => state.comments);
+  const comments = useAppSelector((state) => state);
 
   const dispatch = useAppDispatch();
 
@@ -17,7 +17,7 @@ export const CommentsList = () => {
     }
   };
 
-  const renderedComments = comments.map((cmnt: any) => (
+  const renderedComments = comments.commentsReducer.comments.map((cmnt: any) => (
     <div key={`cmd-${cmnt.id}`}>
       <div className="commentbox-first-row">
         {/*cmnt.attributes.author.data.attributes.name && (

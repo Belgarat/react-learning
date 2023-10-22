@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  {
+const initialState = {
+  comments: [
+    {
     id: 1,
     attributes: {
       body: "prova111",
@@ -44,8 +45,8 @@ const initialState = [
         },
       },
     },
-  },
-];
+  }],
+};
 
 export const commentsSlice = createSlice({
   name: "comments",
@@ -53,13 +54,13 @@ export const commentsSlice = createSlice({
   reducers: {
     commentAdded(state, action) {
       //console.log("commentAdded: ", state, action.payload);
-      state.push(action.payload);
+      state.comments.push(action.payload);
     },
     commentDeleted(state, action) {
-      //console.log("commentDeleted: ", state, action.payload.id);
+      console.log("commentDeleted: ", state, action.payload.id);
       const idToDelete = action.payload.id;
-      const commentsFiltered = state.filter((cmnt) => cmnt.id !== idToDelete);
-      console.log(commentsFiltered);
+      state.comments = state.comments.filter((cmnt) => cmnt.id !== idToDelete);
+      return state;
     },
   },
 });
