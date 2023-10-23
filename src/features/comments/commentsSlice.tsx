@@ -59,14 +59,26 @@ export const commentsSlice = createSlice({
       state.comments.push(action.payload);
     },
     commentDeleted(state, action) {
-      //console.log("commentDeleted: ", state, action.payload.id);
-      const idToDelete = action.payload.id;
-      //state.comments = state.comments.filter((cmnt) => cmnt.id !== idToDelete);
+      //console.log("commentDeleted: ", state, action.payload);
+      const idToDelete = action.payload;
+      //console.log(idToDelete.id);
+      state.comments = state.comments.filter(
+        (cmnt) => cmnt.id !== idToDelete.id
+      );
       return state;
+    },
+    commentEdited(state, action) {
+      //console.log("commentDeleted: ", state, action.payload.id);
+      const { id, body } = action.payload;
+      const existingPost = state.comments.find((cmnt) => cmnt.id === id);
+      if (existingPost) {
+        existingPost.attributes.body = body;
+      }
     },
   },
 });
 
-export const { commentAdded, commentDeleted } = commentsSlice.actions;
+export const { commentAdded, commentDeleted, commentEdited } =
+  commentsSlice.actions;
 
 export default commentsSlice.reducer;

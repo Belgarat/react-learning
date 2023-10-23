@@ -1,4 +1,4 @@
-export interface CommentSystemModel {
+/*export interface CommentSystemModel {
   maxlength: number;
   comment: CommentModel;
   comments: CommentModel[];
@@ -10,116 +10,110 @@ export interface CommentSystemModel {
   initComments: (comments: CommentModel[]) => void;
   initAuthors: (authors: AuthorModel[]) => void;
   likeComment?: (id: number|undefined) => void;
-}
-
-
+}*/
 
 /* COMMENT */
 
 export interface CommentModel {
-  id?: number
-  attributes: CommentAttr
+  id?: number;
+  attributes: CommentAttr;
 }
 
 export interface CommentAttr {
-  body: string
-  likes: number
-  createdAt?: string
-  updatedAt?: string
-  publishedAt?: string
-  author: CmntAuthorModel
+  body: string;
+  likes: number;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
+  author: CmntAuthorModel;
 }
 
 export interface CmntAuthorModel {
-  data: CmntAuthorData
+  data: CmntAuthorData;
 }
 
 export interface CmntAuthorData {
-  id: number
-  attributes: CmntAuthorAttr
+  id: number;
+  attributes: CmntAuthorAttr;
 }
 
 export interface CmntAuthorAttr {
-  name: string
-  email: string
-  createdAt?: string
-  updatedAt?: string
-  publishedAt?: string
+  name: string;
+  email: string;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
 }
-
-
 
 /* AUTHOR */
 
 export interface AuthorModel {
-  id: number
-  attributes: AuthorAttr
+  id: number;
+  attributes: AuthorAttr;
 }
 
 export interface AuthorAttr {
-  name: string
-  email: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  avatar: AuthorAvatar
+  name: string;
+  email: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  avatar: AuthorAvatar;
 }
 
 export interface AuthorAvatar {
-  data: AuthorAvatarData
+  data: AuthorAvatarData;
 }
 
 export interface AuthorAvatarData {
-  id: number
-  attributes: AuthorAvatarAttr
+  id: number;
+  attributes: AuthorAvatarAttr;
 }
 
 export interface AuthorAvatarAttr {
-  name: string
-  alternativeText: any
-  caption: any
-  width: number
-  height: number
-  formats: Formats
-  hash: string
-  ext: string
-  mime: string
-  size: number
-  url: string
-  previewUrl: any
-  provider: string
-  provider_metadata: any
-  createdAt: string
-  updatedAt: string
+  name: string;
+  alternativeText: any;
+  caption: any;
+  width: number;
+  height: number;
+  formats: Formats;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: any;
+  provider: string;
+  provider_metadata: any;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Formats {
-  thumbnail: Thumbnail
-  small: Small
+  thumbnail: Thumbnail;
+  small: Small;
 }
 
 export interface Thumbnail {
-  name: string
-  hash: string
-  ext: string
-  mime: string
-  path: any
-  width: number
-  height: number
-  size: number
-  url: string
+  name: string;
+  hash: string;
+  ext: string;
+  mime: string;
+  path: any;
+  width: number;
+  height: number;
+  size: number;
+  url: string;
 }
 
 export interface Small {
-  name: string
-  hash: string
-  ext: string
-  mime: string
-  path: any
-  width: number
-  height: number
-  size: number
-  url: string
+  name: string;
+  hash: string;
+  ext: string;
+  mime: string;
+  path: any;
+  width: number;
+  height: number;
+  size: number;
+  url: string;
 }
-
-

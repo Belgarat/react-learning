@@ -134,3 +134,11 @@
 .replyformflex-charcounter-error {
   color: red;
 }
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
