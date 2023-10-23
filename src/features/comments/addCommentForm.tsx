@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { commentAdded } from "./commentsSlice";
 
 export const AddCommentForm = () => {
   const [body, setBody] = useState("");
+
+  const me = useAppSelector((state) => state);
 
   const dispatch = useAppDispatch();
 
@@ -14,10 +16,22 @@ export const AddCommentForm = () => {
     if (body) {
       dispatch(
         commentAdded({
-          id: 3,
+          id: 5,
           attributes: {
             body,
             likes: 0,
+            author: {
+              data: {
+                id: me,
+                attributes: {
+                  name: "John Smith",
+                  email: "js@js.test",
+                  createdAt: "2023-09-18T12:13:10.947Z",
+                  updatedAt: "2023-09-18T12:13:11.934Z",
+                  publishedAt: "2023-09-18T12:13:11.932Z",
+                },
+              },
+            },
           },
         })
       );
