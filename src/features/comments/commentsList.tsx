@@ -4,6 +4,7 @@ import "./commentsStyle.css";
 import { ReactComponent as LikeIcon } from "./like-svgrepo-com.svg";
 import { ReactComponent as TrashIcon } from "./icons8-trash.svg";
 import { commentDeleted } from "./commentsSlice";
+import { Comment } from "./comment";
 
 export const CommentsList = () => {
   const comments = useAppSelector((state) => state);
@@ -23,15 +24,10 @@ export const CommentsList = () => {
 
   const renderedComments = comments.commentsReducer.comments.map(
     (cmnt: any) => (
+      <Comment cmnt={cmnt} />
+      /*
       <div key={`cmd-${cmnt.id}`}>
-        <div className="commentbox-first-row">
-          {/*cmnt.attributes.author.data.attributes.name && (
-          <span>{cmnt.attributes.author.data.attributes.name}</span>
-        )*/}
-          {/*cmnt.attributes.createdAt && (
-          <span>{cmnt.attributes.createdAt.substring(0, 10)}</span>
-        )*/}
-        </div>
+        
 
         <div className="commentbox-second-row">
           <div id={`cmnt_text-${cmnt.id}`} className="commentText">
@@ -69,7 +65,7 @@ export const CommentsList = () => {
         </div>
 
         <div className="commentbox-spacer"></div>
-      </div>
+      </div>*/
     )
   );
 
