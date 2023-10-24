@@ -52,6 +52,16 @@
   cursor: pointer;
 }
 
+.editbutton{
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.editbutton:hover{
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
 .commentText{
   white-space: pre-line;
   text-align: left;
@@ -136,9 +146,9 @@
 }
 
 .visible {
-  visibility: visible;
+  display: flex;
 }
 
 .invisible {
-  visibility: hidden;
+  display: none;
 }

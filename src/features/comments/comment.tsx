@@ -3,6 +3,7 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import "./commentsStyle.css";
 import { ReactComponent as LikeIcon } from "./like-svgrepo-com.svg";
 import { ReactComponent as TrashIcon } from "./icons8-trash.svg";
+import { ReactComponent as EditIcon } from "./edit-button.svg";
 import { commentDeleted, commentEdited } from "./commentsSlice";
 import { CommentModel } from "../../Interfaces";
 
@@ -102,7 +103,11 @@ export const Comment = (cmnt: CommentModel) => {
           <LikeIcon className="likebutton" />
           <span>#Likes: {cmnt.attributes.likes}</span>
           {cmnt.attributes.author.data.id === me && (
-            <button onClick={onEditingPressed}>Edit this comment</button>
+            <EditIcon
+              onClick={onEditingPressed}
+              className="editbutton"
+              title="Edit this comment"
+            />
           )}
           {cmnt.attributes.author.data.id === me && (
             <TrashIcon
