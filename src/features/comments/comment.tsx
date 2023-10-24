@@ -111,7 +111,11 @@ export const Comment = (cmnt: CommentModel) => {
         </div>
 
         <div className="commentbox-second-row">
-          <LikeIcon className="likebutton" onClick={onLikePressed} />
+          <LikeIcon
+            className="likebutton"
+            title="Like this comment"
+            onClick={onLikePressed}
+          />
           <span>#Likes: {cmnt.attributes.likes}</span>
           {cmnt.attributes.author.data.id === me && (
             <EditIcon
