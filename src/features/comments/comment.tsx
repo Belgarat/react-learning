@@ -62,7 +62,7 @@ export const Comment = (cmnt: CommentModel) => {
         <div className="commentbox-second-row">
           <div
             id={`cmnt_text-${cmnt.id}`}
-            className={visibleEditing ? "invisibile" : "visible"}
+            className={visibleEditing ? "invisible" : "visible"}
           >
             <span className="commentText">{body}</span>
           </div>
@@ -74,7 +74,7 @@ export const Comment = (cmnt: CommentModel) => {
                 //className="replyformflex-first-row"
                 className={
                   visibleEditing
-                    ? "replyformflex-first-row visibile"
+                    ? "replyformflex-first-row visible"
                     : "replyformflex-first-row invisible"
                 }
               >
