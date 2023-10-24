@@ -75,10 +75,17 @@ export const commentsSlice = createSlice({
         existingPost.attributes.body = body;
       }
     },
+    commentLiked(state, action) {
+      const { id } = action.payload;
+      const existingPost = state.comments.find((cmnt) => cmnt.id === id);
+      if (existingPost) {
+        existingPost.attributes.likes = existingPost.attributes.likes + 1;
+      }
+    },
   },
 });
 
-export const { commentAdded, commentDeleted, commentEdited } =
+export const { commentAdded, commentDeleted, commentEdited, commentLiked } =
   commentsSlice.actions;
 
 export default commentsSlice.reducer;

@@ -4,7 +4,7 @@ import "./commentsStyle.css";
 import { ReactComponent as LikeIcon } from "./like-svgrepo-com.svg";
 import { ReactComponent as TrashIcon } from "./icons8-trash.svg";
 import { ReactComponent as EditIcon } from "./edit-button.svg";
-import { commentDeleted, commentEdited } from "./commentsSlice";
+import { commentDeleted, commentEdited, commentLiked } from "./commentsSlice";
 import { CommentModel } from "../../Interfaces";
 
 export const Comment = (cmnt: CommentModel) => {
@@ -20,6 +20,17 @@ export const Comment = (cmnt: CommentModel) => {
   const onContentChanged = (e: any) => setBody(e.target.value);
   const onEditingPressed = () => {
     setVisibleEditing((visibleEditing) => !visibleEditing);
+  };
+
+  const onLikePressed = () => {
+    if (cmnt.id) {
+      //const idToDelete = cmnt.id;
+      dispatch(
+        commentLiked({
+          id: cmnt.id,
+        })
+      );
+    }
   };
 
   const onDeleteCommentClicked = () => {
@@ -100,7 +111,7 @@ export const Comment = (cmnt: CommentModel) => {
         </div>
 
         <div className="commentbox-second-row">
-          <LikeIcon className="likebutton" />
+          <LikeIcon className="likebutton" onClick={onLikePressed} />
           <span>#Likes: {cmnt.attributes.likes}</span>
           {cmnt.attributes.author.data.id === me && (
             <EditIcon
