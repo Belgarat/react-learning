@@ -8,9 +8,6 @@ import { commentDeleted, commentEdited, commentLiked } from "./commentsSlice";
 import { CommentModel } from "../../Interfaces";
 
 export const Comment = (cmnt: CommentModel) => {
-  //export const Comment: React.FC<CommentModel> = (cmnt: CommentModel) => {
-  //console.log(cmnt);
-  //const comments = useAppSelector((state) => state);
   const me = useAppSelector((state) => state).commentsReducer.me;
   const [body, setBody] = useState(cmnt.attributes.body);
   const [visibleEditing, setVisibleEditing] = useState(false);
