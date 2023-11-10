@@ -6,7 +6,7 @@ const initialState = {
   status: "idle",
   error: null,
   comments: [
-    {
+    /*{
       id: 1,
       attributes: {
         body: "prova111",
@@ -49,7 +49,7 @@ const initialState = {
           },
         },
       },
-    },
+    },*/
   ],
 };
 
@@ -59,30 +59,35 @@ export const commentsSlice = createSlice({
   reducers: {
     commentAdded(state, action) {
       //console.log("commentAdded: ", state, action.payload);
-      state.comments.push(action.payload);
+      const toAdd: any = action.payload;
+      state.comments.push(toAdd);
     },
     commentDeleted(state, action) {
       //console.log("commentDeleted: ", state, action.payload);
       const idToDelete = action.payload;
       //console.log(idToDelete.id);
       state.comments = state.comments.filter(
-        (cmnt) => cmnt.id !== idToDelete.id
+        (cmnt: CommentModel) => cmnt.id !== idToDelete.id
       );
       return state;
     },
     commentEdited(state, action) {
       //console.log("commentDeleted: ", state, action.payload.id);
       const { id, body } = action.payload;
-      const existingPost = state.comments.find((cmnt) => cmnt.id === id);
-      if (existingPost) {
-        existingPost.attributes.body = body;
+      const existingComment: any = state.comments.find(
+        (cmnt: CommentModel) => cmnt.id === id
+      );
+      if (existingComment) {
+        existingComment.attributes.body = body;
       }
     },
     commentLiked(state, action) {
       const { id } = action.payload;
-      const existingPost = state.comments.find((cmnt) => cmnt.id === id);
-      if (existingPost) {
-        existingPost.attributes.likes = existingPost.attributes.likes + 1;
+      const existingComment: any = state.comments.find(
+        (cmnt: CommentModel) => cmnt.id === id
+      );
+      if (existingComment) {
+        existingComment.attributes.likes = existingComment.attributes.likes + 1;
       }
     },
   },
@@ -93,7 +98,9 @@ export const { commentAdded, commentDeleted, commentEdited, commentLiked } =
 
 export default commentsSlice.reducer;
 
-export const selectAllPosts = (state: any) => state.comments;
+export const selectAllPosts = (state: any) => state.commentsReducer.comments;
+
+export const selectStatus = (state: any) => state.commentsReducer.status;
 
 export const selectCommentById = (state: any, commentId: number) =>
   state.posts.find((cmnt: CommentModel) => cmnt.id === commentId);
