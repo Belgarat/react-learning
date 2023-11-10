@@ -1,7 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { CommentModel } from "../../Interfaces";
 
-const initialState: {me: number, status: string, error: string|null, comments: CommentModel[]} = {
+const initialState: {
+  me: number;
+  status: string;
+  error: string | null;
+  comments: CommentModel[];
+} = {
   me: 1,
   status: "idle",
   error: null,
@@ -69,10 +74,11 @@ export const fetchPosts = createAsyncThunk(
       "http://localhost:1337/api/comments?populate=*",
       { headers }
     ).then((response) => response.json());
+    //console.log(response.data);
     return response.data;
   }
 );
- /*{
+/*{
       id: 1,
       attributes: {
         body: "prova111",

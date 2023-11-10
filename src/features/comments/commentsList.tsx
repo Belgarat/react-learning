@@ -17,7 +17,9 @@ export const CommentsList = () => {
 
   useEffect(() => {
     if (commentStatus === "idle") {
+      //console.log("first loading");
       dispatch(fetchPosts());
+      //console.log(comments);
     }
   }, [commentStatus, dispatch]);
 
