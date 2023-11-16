@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import "./commentsStyle.css";
-import { fetchPosts, selectAllPosts, selectStatus } from "./commentsSlice";
+import { fetchComments, selectAllPosts, selectStatus } from "./commentsSlice";
 import { Comment } from "./comment";
 import { CommentModel } from "../../Interfaces";
 
@@ -18,7 +18,7 @@ export const CommentsList = () => {
   useEffect(() => {
     if (commentStatus === "idle") {
       //console.log("first loading");
-      dispatch(fetchPosts());
+      dispatch(fetchComments());
       //console.log(comments);
     }
   }, [commentStatus, dispatch]);

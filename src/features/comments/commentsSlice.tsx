@@ -64,7 +64,7 @@ export const selectStatus = (state: any) => state.commentsReducer.status;
 export const selectCommentById = (state: any, commentId: number) =>
   state.posts.find((cmnt: CommentModel) => cmnt.id === commentId);
 
-export const fetchPosts = createAsyncThunk(
+export const fetchComments = createAsyncThunk(
   "comments/fetchComments",
   async () => {
     const BearerToken =
