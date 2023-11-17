@@ -8,7 +8,8 @@ import { commentDeleted, commentEdited, commentLiked } from "./commentsSlice";
 import { CommentModel } from "../../Interfaces";
 
 export const Comment = (cmnt: CommentModel) => {
-  const me = useAppSelector((state) => state).commentsReducer.me;
+  //const me = useAppSelector((state) => state).commentsReducer.me;
+  const me = useAppSelector((state) => state).comments.me;
   const [body, setBody] = useState(cmnt.attributes.body);
   const [visibleEditing, setVisibleEditing] = useState(false);
 

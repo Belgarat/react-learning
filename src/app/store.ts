@@ -6,7 +6,8 @@ import commentsReducer from '../features/comments/commentsSlice'
 const store = configureStore({
   reducer: {
     authors: authorsReducer,
-    commentsReducer
+    //commentsReducer
+    comments: commentsReducer
   }
 })
 

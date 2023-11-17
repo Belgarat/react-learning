@@ -57,9 +57,9 @@ export const { commentAdded, commentDeleted, commentEdited, commentLiked } =
 
 export default commentsSlice.reducer;
 
-export const selectAllPosts = (state: any) => state.commentsReducer.comments;
+export const selectAllComments = (state: any) => state.comments.comments;
 
-export const selectStatus = (state: any) => state.commentsReducer.status;
+export const selectStatus = (state: any) => state.comments.status;
 
 export const selectCommentById = (state: any, commentId: number) =>
   state.posts.find((cmnt: CommentModel) => cmnt.id === commentId);
