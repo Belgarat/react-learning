@@ -28,7 +28,7 @@ export const CommentsList = () => {
   }, [commentStatus, dispatch]);
 
   //const renderedComments = comments.commentsReducer.comments.map(
-  console.log(comments);
+  //console.log(comments);
   const renderedComments = comments.map((cmnt: CommentModel) => (
     <Comment {...cmnt} />
   ));

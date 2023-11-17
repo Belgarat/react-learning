@@ -13,6 +13,9 @@ export const Comment = (cmnt: CommentModel) => {
   const [body, setBody] = useState(cmnt.attributes.body);
   const [visibleEditing, setVisibleEditing] = useState(false);
 
+  //console.log("Me: " + me);
+  //console.log("cmnt: " + cmnt.attributes.author.data.id);
+
   const dispatch = useAppDispatch();
 
   const onContentChanged = (e: any) => setBody(e.target.value);
@@ -59,7 +62,8 @@ export const Comment = (cmnt: CommentModel) => {
 
   return (
     <>
-      <div key={`cmd-${cmnt.id}`}>
+      {/*<div key={`cmntkey-${cmnt.id}`} id={`cmntid-${cmnt.id}`}>*/}
+      <div key={"cmntkey-" + cmnt.id} id={"cmntid-" + cmnt.id}>
         <div className="commentbox-first-row">
           {/*cmnt.attributes.author.data.attributes.name && (
         <span>{cmnt.attributes.author.data.attributes.name}</span>

@@ -14,9 +14,10 @@ export const AddCommentForm = () => {
 
   const onSaveCommentClicked = () => {
     if (body) {
+      const idToAdd: number = Math.floor(Math.random() * 100000);
       dispatch(
         commentAdded({
-          id: 5,
+          id: idToAdd,
           attributes: {
             body,
             likes: 0,
