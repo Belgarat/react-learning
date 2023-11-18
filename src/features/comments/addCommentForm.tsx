@@ -5,7 +5,8 @@ import { commentAdded } from "./commentsSlice";
 export const AddCommentForm = () => {
   const [body, setBody] = useState("");
 
-  const me = useAppSelector((state) => state);
+  //const me = useAppSelector((state) => state);
+  const me = useAppSelector((state) => state).comments.me;
 
   const dispatch = useAppDispatch();
 
